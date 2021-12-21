@@ -6,8 +6,8 @@
                             <div class="brand-logo">
                                 <img src="<?= base_url('assets/images/logo.svg') ?>" alt="logo">
                             </div>
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="fw-light">Sign in to continue.</h6>
+                            <h4>Selamat Datang</h4>
+                            <h6 class="fw-light">Silahkan Login</h6>
                             <form class="pt-3">
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
@@ -27,13 +27,8 @@
                                     </div>
                                     <a href="#" class="auth-link text-black">Forgot password?</a>
                                 </div>
-                                <div class="mb-2">
-                                    <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                                        <i class="ti-facebook me-2"></i>Connect using facebook
-                                    </button>
-                                </div>
                                 <div class="text-center mt-4 fw-light">
-                                    Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                                    Tidak Punya Account? <a href="register" class="text-primary">Registrasi</a>
                                 </div>
                             </form>
                         </div>
