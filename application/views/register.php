@@ -4,38 +4,46 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="text-center">Registrasi</h4>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="<?= base_url('register'); ?>" method="POST">
                             <div class="form-group">
                                 <label for="exampleInputName1">Name</label>
-                                <input type="text" class="form-control" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" placeholder="Name" name="name" value="<?= set_value('name') ?>">
+                                <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputCity1">No Telp</label>
-                                <input type="text" class="form-control" placeholder="No Telp">
+                                <input type="text" class="form-control" placeholder="No Telp" name="no_telp" value="<?= set_value('no_telp') ?>">
+                                <?= form_error('no_telp', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextarea1">Alamat</label>
-                                <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                                <textarea class="form-control" id="exampleTextarea1" rows="4" name="alamat"><?= set_value('alamat') ?></textarea>
+                                <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputName1">Username</label>
-                                <input type="text" class="form-control" placeholder="username">
+                                <input type="text" class="form-control" placeholder="username" name="username" value="<?= set_value('username') ?>">
+                                <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword4">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" id="Password" class="form-control" placeholder="Password" onkeyup="check();" name="password">
+                                        <div class="invalid-feedback">
+                                            <span id='message1'>test</span>
+                                        </div>
+                                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword4">Konfirmasi Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" id="RePassword" class="form-control" placeholder="Password" onkeyup="check();" name="repassword">
+                                        <div class="invalid-feedback">
+                                            <span id='message2'></span>
+                                        </div>
+                                        <?= form_error('repassword', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                 </div>
                             </div>
