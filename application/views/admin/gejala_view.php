@@ -4,20 +4,20 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Penyakit Tanaman Bawang Merah</h4>
-                    <a href="penyakit/tambah_penyakit" type="button" class="btn btn-primary btn-fw float-right">Tambah Penyakit</a>
+                    <h4 class="card-title">Data Gejala Tanaman Bawang Merah</h4>
+                    <a href="gejala/tambah_gejala" type="button" class="btn btn-primary btn-fw float-right">Tambah Gejala</a>
                     <div class="table-responsive pt-3">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th class="col-1">
-                                        ID Penyakit
+                                        ID Gejala
                                     </th>
                                     <th class="col-3">
-                                        Nama Penyakit
+                                        Nama Gejala
                                     </th>
                                     <th class="col-7">
-                                        Deskripsi Penyakit
+                                        Deskripsi Gejala
                                     </th>
                                     <th class="col-1">
                                         Action
@@ -27,10 +27,10 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        P01
+                                        G01
                                     </td>
                                     <td>
-                                        Penyakit V
+                                        Gejala V
                                     </td>
                                     <td>
                                         Deskripsi dan Gejala

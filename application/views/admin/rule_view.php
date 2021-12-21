@@ -4,22 +4,22 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Penyakit Tanaman Bawang Merah</h4>
-                    <a href="penyakit/tambah_penyakit" type="button" class="btn btn-primary btn-fw float-right">Tambah Penyakit</a>
+                    <h4 class="card-title">Data Rule Tanaman Bawang Merah</h4>
+                    <a href="rule/tambah_rule" type="button" class="btn btn-primary btn-fw float-right">Tambah Rule</a>
                     <div class="table-responsive pt-3">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="col-1">
+                                    <th class="col-4">
+                                        ID Rule
+                                    </th>
+                                    <th class="col-4">
                                         ID Penyakit
                                     </th>
-                                    <th class="col-3">
-                                        Nama Penyakit
+                                    <th class="col-4">
+                                        ID Gejala
                                     </th>
-                                    <th class="col-7">
-                                        Deskripsi Penyakit
-                                    </th>
-                                    <th class="col-1">
+                                    <th class="">
                                         Action
                                     </th>
                                 </tr>
@@ -27,13 +27,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        P01
+                                        R01
                                     </td>
                                     <td>
-                                        Penyakit V
+                                        G01
                                     </td>
                                     <td>
-                                        Deskripsi dan Gejala
+                                        G01
                                     </td>
                                     <td>
                                         <button type="button" class="btn-sm btn-inverse-info btn-icon">

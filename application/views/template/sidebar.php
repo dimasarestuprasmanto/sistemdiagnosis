@@ -179,44 +179,44 @@
            <ul class="nav">
                <?php if (isset($_SESSION['auth'])) { ?>
                    <li class="nav-item active">
-                       <a class="nav-link" href="index.php">
+                       <a class="nav-link" href="<?= base_url('user/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>
                            <span class="menu-title">Dashboard</span>
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">
+                       <a class="nav-link" href="<?= base_url('user/diagnosis') ?>">
                            <i class="menu-icon mdi mdi-shield-search"></i>
                            <span class="menu-title">Diagnosis Penyakit</span>
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">
+                       <a class="nav-link" href="<?= base_url('user/info') ?>">
                            <i class="menu-icon mdi mdi-information"></i>
                            <span class="menu-title">Info Penyakit</span>
                        </a>
                    </li>
                <?php } else { ?>
                    <li class="nav-item">
-                       <a class="nav-link" href="index.php">
+                       <a class="nav-link" href="<?= base_url('admin/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>
                            <span class="menu-title">Dashboard</span>
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="penyakit_view.php">
+                       <a class="nav-link" href="<?= base_url('admin/penyakit') ?>">
                            <i class="menu-icon mdi mdi-clipboard-plus"></i>
                            <span class="menu-title">Data Penyakit</span>
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">
+                       <a class="nav-link" href="<?= base_url('admin/gejala') ?>">
                            <i class="menu-icon mdi mdi-clipboard-pulse"></i>
                            <span class="menu-title">Data Gejala</span>
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">
+                       <a class="nav-link" href="<?= base_url('admin/rule') ?>">
                            <i class="menu-icon mdi mdi-clipboard-text"></i>
                            <span class="menu-title">Data Rule</span>
                        </a>
