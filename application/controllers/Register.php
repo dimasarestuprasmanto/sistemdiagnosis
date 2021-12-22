@@ -10,10 +10,11 @@ class Register extends CI_Controller
     }
     public function index()
     {
-        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->load->helper('date');
+        $this->form_validation->set_rules('name', 'Name', 'required|is_unique[user.nama]');
         $this->form_validation->set_rules('no_telp', 'No_telp', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         $this->form_validation->set_rules('repassword', 'Konfirmasi Password', 'trim|required|matches[password]');
 
@@ -23,13 +24,16 @@ class Register extends CI_Controller
             $this->load->view('template/footer');
         } else {
             $data = [
-                'name' => $this->input->post('name'),
+                'nama' => $this->input->post('name'),
                 'no_telp' => $this->input->post('no_telp'),
                 'alamat' => $this->input->post('alamat'),
                 'username' => $this->input->post('username'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'tanggal_registrasi' => time()
+                'password' => md5($this->input->post('password')),
+                'level' => 2
             ];
+
+            $this->db->insert('user', $data);
+            redirect(base_url(''));
         }
     }
 }
