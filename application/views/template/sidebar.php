@@ -28,7 +28,7 @@
        <!-- partial:partials/_sidebar.html -->
        <nav class="sidebar sidebar-offcanvas" id="sidebar">
            <ul class="nav">
-               <?php if (isset($_SESSION['auth'])) { ?>
+               <?php if($this->session->userdata('level')==='2'): ?>
                    <li class="nav-item active">
                        <a class="nav-link" href="<?= base_url('user/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>
@@ -47,7 +47,7 @@
                            <span class="menu-title">Info Penyakit</span>
                        </a>
                    </li>
-               <?php } else { ?>
+                   <?php elseif($this->session->userdata('level')==='1'):?> 
                    <li class="nav-item">
                        <a class="nav-link" href="<?= base_url('admin/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>
@@ -72,6 +72,6 @@
                            <span class="menu-title">Data Rule</span>
                        </a>
                    </li>
-               <?php } ?>
+               <?php endif; ?>
            </ul>
        </nav>

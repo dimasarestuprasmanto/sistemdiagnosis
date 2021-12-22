@@ -6,29 +6,28 @@
                             <div class="brand-logo">
                                 <img src="<?= base_url('assets/images/logo.svg') ?>" alt="logo">
                             </div>
-                            <h4>Selamat Datang</h4>
                             <h6 class="fw-light">Silahkan Login</h6>
-                            <form class="pt-3">
+                            <?php echo $this->session->flashdata('msg');?>
+                            <form class="pt-3" action="<?php echo site_url('login/auth');?>" method="POST">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                                    <input type="text" autocomplete="off" spellcheck="false" aria-live="polite"  class="form-control form-control-lg" name="username" placeholder="Username">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                                    <input type="password" class="form-control form-control-lg" name="password" placeholder="Kata Sandi">
                                 </div>
                                 <div class="mt-3">
-                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN IN</a>
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">LOGIN</button>
                                 </div>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
-                                            <input type="checkbox" class="form-check-input">
-                                           Ingat saya
+                                            <input type="checkbox" class="form-check-input" value="remember-me"> Remember me
                                         </label>
                                     </div>
                                     <a href="#" class="auth-link text-black">Lupa kata sandi</a>
                                 </div>
                                 <div class="text-center mt-4 fw-light">
-                                    Tidak punya akun? <a href="register" class="text-primary">Daftar disini</a>
+                                    Pengguna baru? <a href="register" class="text-primary">Daftar disini</a>
                                 </div>
                             </form>
                         </div>
