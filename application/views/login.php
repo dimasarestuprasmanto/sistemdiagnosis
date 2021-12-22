@@ -22,13 +22,13 @@
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
                                             <input type="checkbox" class="form-check-input">
-                                            Keep me signed in
+                                           Ingat saya
                                         </label>
                                     </div>
-                                    <a href="#" class="auth-link text-black">Forgot password?</a>
+                                    <a href="#" class="auth-link text-black">Lupa kata sandi</a>
                                 </div>
                                 <div class="text-center mt-4 fw-light">
-                                    Tidak Punya Account? <a href="register" class="text-primary">Registrasi</a>
+                                    Tidak punya akun? <a href="register" class="text-primary">Daftar disini</a>
                                 </div>
                             </form>
                         </div>
