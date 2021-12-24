@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Dec 22, 2021 at 09:24 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Host: 127.0.0.1
+-- Generation Time: Dec 24, 2021 at 09:52 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,10 +55,17 @@ CREATE TABLE `konsultasi` (
 --
 
 CREATE TABLE `parameter` (
-  `id_parameter` int(10) NOT NULL,
+  `id_parameter` varchar(50) NOT NULL,
   `nama_parameter` varchar(200) NOT NULL,
   `pertanyaan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `parameter`
+--
+
+INSERT INTO `parameter` (`id_parameter`, `nama_parameter`, `pertanyaan`) VALUES
+('G01', 'Gejala A', 'A');
 
 -- --------------------------------------------------------
 
@@ -118,7 +125,7 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`, `alamat`
 
 CREATE TABLE `value` (
   `id_value` int(11) NOT NULL,
-  `id_parameter` int(11) NOT NULL,
+  `id_parameter` varchar(50) NOT NULL,
   `val_value` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -189,12 +196,6 @@ ALTER TABLE `data_rule`
 --
 ALTER TABLE `konsultasi`
   MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `parameter`
---
-ALTER TABLE `parameter`
-  MODIFY `id_parameter` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rule`

@@ -10,6 +10,8 @@ class Gejala extends CI_Controller
             $url = base_url();
             redirect($url);
         }
+        $this->load->model('GejalaModel');
+        $this->load->library('form_validation');
     }
     public function index()
     {
@@ -22,10 +24,31 @@ class Gejala extends CI_Controller
 
     public function tambah_gejala()
     {
-        $this->load->view('template/header');
-        $this->load->view('template/nav');
-        $this->load->view('template/sidebar');
-        $this->load->view('admin/tambah_gejala_view');
-        $this->load->view('template/footer');
+        $data['id'] = $this->GejalaModel->setId();
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('pertanyaan', 'pertanyaan', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
+            $this->load->view('template/nav');
+            $this->load->view('template/sidebar');
+            $this->load->view('admin/tambah_gejala_view');
+            $this->load->view('template/footer');
+        } else {
+            $data = [
+                'id_parameter' => $this->input->post('id'),
+                'nama_parameter' => $this->input->post('nama'),
+                'pertanyaan' => $this->input->post('pertanyaan')
+            ];
+
+            $this->db->insert('parameter', $data);
+            redirect(base_url('/admin/gejala'));
+        }
+    }
+
+    public function save()
+    {
+
+        redirect(base_url('admin/gejala'));
     }
 }

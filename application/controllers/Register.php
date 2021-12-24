@@ -10,7 +10,6 @@ class Register extends CI_Controller
     }
     public function index()
     {
-        $this->load->helper('date');
         $this->form_validation->set_rules('name', 'Name', 'required|is_unique[user.nama]');
         $this->form_validation->set_rules('no_telp', 'No_telp', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
