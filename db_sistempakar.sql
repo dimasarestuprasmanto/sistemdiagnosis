@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2021 at 09:52 AM
+-- Generation Time: Dec 30, 2021 at 10:39 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -24,73 +24,69 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_rule`
+-- Table structure for table `evidences`
 --
 
-CREATE TABLE `data_rule` (
-  `id_data_rule` int(11) NOT NULL,
-  `id_value` int(11) NOT NULL,
-  `id_rule` int(11) NOT NULL,
-  `val_konklusi` int(10) NOT NULL
+CREATE TABLE `evidences` (
+  `id` int(12) NOT NULL,
+  `code` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `evidences`
+--
+
+INSERT INTO `evidences` (`id`, `code`, `name`, `description`) VALUES
+(1, 'G01', 'Akar Rusak', '12312'),
+(2, 'G02', 'Ujung Daun Mengering', '1212'),
+(7, 'G03', 'Umbi Membusuk', 'tet1231');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konsultasi`
+-- Table structure for table `problems`
 --
 
-CREATE TABLE `konsultasi` (
-  `id_konsultasi` int(11) NOT NULL,
-  `id_solusi` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `hasil_k` varchar(200) NOT NULL,
-  `tanggal_k` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+CREATE TABLE `problems` (
+  `id` int(12) NOT NULL,
+  `code` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `solution` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `problems`
+--
+
+INSERT INTO `problems` (`id`, `code`, `name`, `description`, `image`, `solution`) VALUES
+(3, 'P01', 'Orong-Orong', '12', 'e82a4de03482515954140a6c8aa10a20.JPG', '12'),
+(4, 'P02', 'Ujung Daun Mengering', '123', 'default.jpg', 'Ujung Daun Mengering');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parameter`
+-- Table structure for table `rules`
 --
 
-CREATE TABLE `parameter` (
-  `id_parameter` varchar(50) NOT NULL,
-  `nama_parameter` varchar(200) NOT NULL,
-  `pertanyaan` varchar(200) NOT NULL
+CREATE TABLE `rules` (
+  `id` int(12) NOT NULL,
+  `code` varchar(25) NOT NULL,
+  `belief` double NOT NULL,
+  `problems_id` int(12) NOT NULL,
+  `evidences_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `parameter`
+-- Dumping data for table `rules`
 --
 
-INSERT INTO `parameter` (`id_parameter`, `nama_parameter`, `pertanyaan`) VALUES
-('G01', 'Gejala A', 'A');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rule`
---
-
-CREATE TABLE `rule` (
-  `id_rule` int(11) NOT NULL,
-  `nama_set` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `solusi`
---
-
-CREATE TABLE `solusi` (
-  `id_solusi` int(11) NOT NULL,
-  `id_value` int(11) NOT NULL,
-  `opt` varchar(50) NOT NULL,
-  `gejala` varchar(200) NOT NULL,
-  `solusi` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `rules` (`id`, `code`, `belief`, `problems_id`, `evidences_id`) VALUES
+(3, 'R01', 0.25, 3, 1),
+(6, 'R02', 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -117,56 +113,29 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`, `alamat`
 (1, 'Ari Sumardi', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', 'Tangerang', '085863727216', '2021-12-22 06:42:10'),
 (2, 'Dimas Arestu', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '2', 'Pekanbaru', '087223727211', '2021-12-22 06:42:54');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `value`
---
-
-CREATE TABLE `value` (
-  `id_value` int(11) NOT NULL,
-  `id_parameter` varchar(50) NOT NULL,
-  `val_value` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_rule`
+-- Indexes for table `evidences`
 --
-ALTER TABLE `data_rule`
-  ADD PRIMARY KEY (`id_data_rule`),
-  ADD KEY `id_value` (`id_value`),
-  ADD KEY `id_rule` (`id_rule`);
+ALTER TABLE `evidences`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `konsultasi`
+-- Indexes for table `problems`
 --
-ALTER TABLE `konsultasi`
-  ADD PRIMARY KEY (`id_konsultasi`),
-  ADD KEY `id_solusi` (`id_solusi`),
-  ADD KEY `id_user` (`id_user`);
+ALTER TABLE `problems`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `parameter`
+-- Indexes for table `rules`
 --
-ALTER TABLE `parameter`
-  ADD PRIMARY KEY (`id_parameter`);
-
---
--- Indexes for table `rule`
---
-ALTER TABLE `rule`
-  ADD PRIMARY KEY (`id_rule`);
-
---
--- Indexes for table `solusi`
---
-ALTER TABLE `solusi`
-  ADD PRIMARY KEY (`id_solusi`),
-  ADD KEY `id_value` (`id_value`);
+ALTER TABLE `rules`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `problem_id` (`problems_id`),
+  ADD KEY `evidences_id` (`evidences_id`);
 
 --
 -- Indexes for table `user`
@@ -175,39 +144,26 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `value`
---
-ALTER TABLE `value`
-  ADD PRIMARY KEY (`id_value`),
-  ADD KEY `id_parameter` (`id_parameter`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `data_rule`
+-- AUTO_INCREMENT for table `evidences`
 --
-ALTER TABLE `data_rule`
-  MODIFY `id_data_rule` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `evidences`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `konsultasi`
+-- AUTO_INCREMENT for table `problems`
 --
-ALTER TABLE `konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `problems`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `rule`
+-- AUTO_INCREMENT for table `rules`
 --
-ALTER TABLE `rule`
-  MODIFY `id_rule` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `solusi`
---
-ALTER TABLE `solusi`
-  MODIFY `id_solusi` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rules`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -216,40 +172,15 @@ ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `value`
---
-ALTER TABLE `value`
-  MODIFY `id_value` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `data_rule`
+-- Constraints for table `rules`
 --
-ALTER TABLE `data_rule`
-  ADD CONSTRAINT `data_rule_ibfk_1` FOREIGN KEY (`id_value`) REFERENCES `value` (`id_value`),
-  ADD CONSTRAINT `data_rule_ibfk_2` FOREIGN KEY (`id_rule`) REFERENCES `rule` (`id_rule`);
-
---
--- Constraints for table `konsultasi`
---
-ALTER TABLE `konsultasi`
-  ADD CONSTRAINT `konsultasi_ibfk_1` FOREIGN KEY (`id_solusi`) REFERENCES `solusi` (`id_solusi`),
-  ADD CONSTRAINT `konsultasi_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Constraints for table `solusi`
---
-ALTER TABLE `solusi`
-  ADD CONSTRAINT `solusi_ibfk_1` FOREIGN KEY (`id_value`) REFERENCES `value` (`id_value`);
-
---
--- Constraints for table `value`
---
-ALTER TABLE `value`
-  ADD CONSTRAINT `value_ibfk_1` FOREIGN KEY (`id_parameter`) REFERENCES `parameter` (`id_parameter`);
+ALTER TABLE `rules`
+  ADD CONSTRAINT `rules_ibfk_1` FOREIGN KEY (`evidences_id`) REFERENCES `evidences` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `rules_ibfk_2` FOREIGN KEY (`problems_id`) REFERENCES `problems` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
