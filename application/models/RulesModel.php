@@ -22,8 +22,8 @@ class RulesModel extends CI_Model
 
     function getAll()
     {
-        $query = $this->db->query("SELECT rules.*,evidences.name as gejala,evidences.id as gejala_id,problems.id as penyakit_id,problems.name as penyakit FROM rules 
-        left join evidences on evidences.id = rules.evidences_id
+        $query = $this->db->query("SELECT rules.*,gejala.name as gejala,gejala.id as gejala_id,problems.id as penyakit_id,problems.name as penyakit FROM rules 
+        left join gejala on gejala.id = rules.gejala_id
         left join problems on problems.id = rules.problems_id ORDER BY code ASC");
 
         return $query->result();
@@ -31,8 +31,8 @@ class RulesModel extends CI_Model
 
     function getById($id)
     {
-        $query = $this->db->query("SELECT rules.*,evidences.name as gejala,evidences.id as gejala_id,problems.id as penyakit_id,problems.name as penyakit FROM rules 
-        left join evidences on evidences.id = rules.evidences_id
+        $query = $this->db->query("SELECT rules.*,gejala.name as gejala,gejala.id as gejala_id,problems.id as penyakit_id,problems.name as penyakit FROM rules 
+        left join gejala on gejala.id = rules.gejala_id
         left join problems on problems.id = rules.problems_id where rules.id = $id");
 
         return $query->row_array();

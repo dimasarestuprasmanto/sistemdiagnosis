@@ -23,13 +23,12 @@
                </div>
            </div>
        </div>
-
        <!-- partial -->
        <!-- partial:partials/_sidebar.html -->
        <nav class="sidebar sidebar-offcanvas" id="sidebar">
            <ul class="nav">
-               <?php if($this->session->userdata('level')==='2'): ?>
-                   <li class="nav-item active">
+               <?php if ($this->session->userdata('level') === '2') : ?>
+                   <li class="nav-item <?= $title == 'Dashboard' ? 'active' : ''; ?>">
                        <a class="nav-link" href="<?= base_url('user/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>
                            <span class="menu-title">Dashboard</span>
@@ -47,7 +46,7 @@
                            <span class="menu-title">Info Penyakit</span>
                        </a>
                    </li>
-                   <?php elseif($this->session->userdata('level')==='1'):?> 
+               <?php elseif ($this->session->userdata('level') === '1') : ?>
                    <li class="nav-item">
                        <a class="nav-link" href="<?= base_url('admin/') ?>">
                            <i class="menu-icon mdi mdi-view-dashboard"></i>

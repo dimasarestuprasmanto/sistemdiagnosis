@@ -5,7 +5,7 @@ class GejalaModel extends CI_Model
     function setId()
     {
         $this->db->select_max('code');
-        $query  = $this->db->get('evidences');
+        $query  = $this->db->get('gejala');
         $row = $query->row_array();
         if (isset($row)) {
             $kode = $row['code'];
@@ -22,14 +22,14 @@ class GejalaModel extends CI_Model
 
     function getAll()
     {
-        $query = $this->db->query("SELECT * FROM evidences ORDER BY code ASC");
+        $query = $this->db->query("SELECT * FROM gejala ORDER BY code ASC");
 
         return $query->result();
     }
 
     function getById($id)
     {
-        $query = $this->db->query("SELECT * FROM evidences where id = $id");
+        $query = $this->db->query("SELECT * FROM gejala where id = $id");
 
         return $query->row_array();
     }

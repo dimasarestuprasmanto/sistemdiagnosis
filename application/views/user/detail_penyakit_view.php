@@ -9,7 +9,7 @@
                     <h2 class="mt-5">Deskripsi Penyakit</h2>
                     <p><?= $data['description']; ?></p>
                     <h2>Gejala Penyakit</h2>
-                    <p><?= $data['name']; ?></p>
+                    <p><?= $gejala['detail']; ?></p>
                     <h2>Solusi Penyembuhan</h2>
                     <p><?= $data['solution']; ?></p>
                 </div>

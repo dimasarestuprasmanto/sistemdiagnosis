@@ -45,7 +45,7 @@ class Rule extends CI_Controller
                 'code' => $this->input->post('id'),
                 'belief' => $this->input->post('belief'),
                 'problems_id' => $this->input->post('penyakit'),
-                'evidences_id' => $this->input->post('gejala')
+                'gejala_id' => $this->input->post('gejala')
             ];
 
             $this->db->insert('rules', $data);
@@ -69,13 +69,14 @@ class Rule extends CI_Controller
             $this->load->view('template/footer');
         } else {
             $data = [
-                'code' => $this->input->post('id'),
+                'code' => $this->input->post('code'),
                 'belief' => $this->input->post('belief'),
                 'problems_id' => $this->input->post('penyakit'),
-                'evidences_id' => $this->input->post('gejala')
+                'gejala_id' => $this->input->post('gejala')
             ];
 
-            $this->db->insert('rules', $data);
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('rules', $data);
             redirect(base_url('/admin/rule'));
         }
     }

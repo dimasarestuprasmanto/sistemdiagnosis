@@ -33,4 +33,14 @@ class ProblemsModel extends CI_Model
 
         return $query->row_array();
     }
+
+    function getGejala($id)
+    {
+        $query = $this->db->query("SELECT problems.id, GROUP_CONCAT(gejala.name) as detail fROM rules 
+        left join gejala on gejala.id = rules.gejala_id
+        left join problems on problems.id = rules.problems_id
+        where problems.id = $id GROUP BY problems.id");
+
+        return $query->row_array();
+    }
 }

@@ -15,7 +15,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="col-4">
+                                    <th class="col-1">
                                         ID Rule
                                     </th>
                                     <th class="col-4">
@@ -24,10 +24,10 @@
                                     <th class="col-4">
                                         Penyakit
                                     </th>
-                                    <th class="col-4">
+                                    <th class="col-1">
                                         Belief
                                     </th>
-                                    <th class="">
+                                    <th class="col-1">
                                         Action
                                     </th>
                                 </tr>

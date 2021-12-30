@@ -26,7 +26,7 @@ class Gejala extends CI_Controller
     public function tambah_gejala()
     {
         $data['id'] = $this->GejalaModel->setId();
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|is_unique[gejala.name]');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -42,7 +42,7 @@ class Gejala extends CI_Controller
                 'description' => $this->input->post('deskripsi')
             ];
 
-            $this->db->insert('evidences', $data);
+            $this->db->insert('gejala', $data);
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect(base_url('/admin/gejala'));
         }
@@ -68,14 +68,14 @@ class Gejala extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('evidences', $data);
+            $this->db->update('gejala', $data);
             $this->session->set_flashdata('flash', 'Di Edit');
             redirect(base_url('/admin/gejala'));
         }
     }
     public function hapus($id)
     {
-        $this->db->delete('evidences', array('id' => $id));
+        $this->db->delete('gejala', array('id' => $id));
         $this->session->set_flashdata('flash', 'DiHapus');
         redirect(base_url('/admin/gejala'));
     }

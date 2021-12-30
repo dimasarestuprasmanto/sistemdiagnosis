@@ -15,6 +15,7 @@ class Diagnosis extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = 'Diagnosis';
         $data['datagejala'] = $this->GejalaModel->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('template/nav');

@@ -15,6 +15,7 @@ class Info extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = 'Info';
         $data['datapenyakit'] = $this->ProblemsModel->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('template/nav');
@@ -25,7 +26,9 @@ class Info extends CI_Controller
 
     public function detail($id)
     {
+        $data['title'] = 'Info';
         $data['data'] = $this->ProblemsModel->getById($id);
+        $data['gejala'] = $this->ProblemsModel->getGejala($id);
         $this->load->view('template/header', $data);
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');

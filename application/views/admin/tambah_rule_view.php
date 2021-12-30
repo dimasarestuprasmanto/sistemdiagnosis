@@ -14,7 +14,7 @@
                             <select class="form-control" id="exampleFormControlSelect2" name="gejala">
                                 <option value="0">---Pilih Gejala---</option>
                                 <?php foreach ($datagejala as $g) : ?>
-                                    <option value="<?= $g->id ?>"><?= $g->name ?></option>
+                                    <option value="<?= $g->id ?>"><?= $g->name ?> (<?= $g->code ?>)</option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -23,7 +23,7 @@
                             <select class="form-control" id="exampleFormControlSelect2" name="penyakit">
                                 <option>---Pilih Penyakit---</option>
                                 <?php foreach ($dataproblems as $p) : ?>
-                                    <option value="<?= $p->id ?>"><?= $p->name ?></option>
+                                    <option value="<?= $p->id ?>"><?= $p->name ?> (<?= $p->code ?>)</option>
                                 <?php endforeach ?>
                             </select>
                         </div>
