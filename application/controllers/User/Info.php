@@ -10,22 +10,26 @@ class Info extends CI_Controller
             $url = base_url();
             redirect($url);
         }
+
+        $this->load->model('ProblemsModel');
     }
     public function index()
     {
-        $this->load->view('template/header');
+        $data['datapenyakit'] = $this->ProblemsModel->getAll();
+        $this->load->view('template/header', $data);
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
         $this->load->view('user/info_penyakit_view.php');
         $this->load->view('template/footer');
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $this->load->view('template/header');
+        $data['data'] = $this->ProblemsModel->getById($id);
+        $this->load->view('template/header', $data);
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
-        $this->load->view('user/detail_info_view.php');
+        $this->load->view('user/detail_penyakit_view.php');
         $this->load->view('template/footer');
     }
 }

@@ -16,27 +16,14 @@
                     <h4 class="card-title">Gejala Yang Dipilih</h4>
                     <form class="forms-sample">
                         <div class="form-group">
-                            <label for="exampleInputName1">Gejala 1</label>
-                            <select class="form-control" name="gejala" id="combo1">
-                                <option value="">Pilih Gejala</option>
-                                <option value="gejala 1">Gejala 1</option>
-                                <option value="gejala 2">Gejala 2</option>
-                                <option value="gejala 3">Gejala 3</option>
-                                <option value="gejala 4">Gejala 4</option>
-                                <option value="gejala 5">Gejala 5</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputName1">Gejala 2</label>
-                            <select class="form-control" name="gejala" id="combo1">
-                                <option value="">Pilih Gejala</option>
-                                <option value="gejala 1">Gejala 1</option>
-                                <option value="gejala 2">Gejala 2</option>
-                                <option value="gejala 3">Gejala 3</option>
-                                <option value="gejala 4">Gejala 4</option>
-                                <option value="gejala 5">Gejala 5</option>
-                            </select>
+                            <?php foreach ($datagejala as $d) : ?>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value=" <?= $d->id; ?>">
+                                        <?= $d->name; ?>
+                                    </label>
+                                </div>
+                            <?php endforeach ?>
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <button class="btn btn-light">Cancel</button>
