@@ -107,7 +107,7 @@ class Penyakit extends CI_Controller
 
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('problems', $data);
-            $this->session->set_flashdata('flash', 'Di Edit');
+            $this->session->set_flashdata('flash-penyakit', 'Di Edit');
             redirect(base_url('/admin/penyakit'));
         }
     }
@@ -115,7 +115,7 @@ class Penyakit extends CI_Controller
     public function hapus($id)
     {
         $this->db->delete('problems', array('id' => $id));
-        $this->session->set_flashdata('flash', 'DiHapus');
+        $this->session->set_flashdata('flash-penyakit', 'DiHapus');
         redirect(base_url('/admin/penyakit'));
     }
 }

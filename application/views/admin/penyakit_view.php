@@ -5,9 +5,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Penyakit Tanaman Bawang Merah</h4>
-                    <?php if ($this->session->flashdata('flash')) : ?>
-                        <div class="alert alert-primary" role="alert">
-                            Data Penyakit Berhasil <?= $this->session->flashdata('flash'); ?>
+                    <?php if ($this->session->flashdata('flash-penyakit')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            Data Penyakit Berhasil <?= $this->session->flashdata('flash-penyakit'); ?>
                         </div>
                     <?php endif ?>
                     <a href="penyakit/tambah_penyakit" type="button" class="btn btn-primary btn-fw float-right">Tambah Penyakit</a>
@@ -18,10 +18,10 @@
                                     <th class="col-1">
                                         ID Penyakit
                                     </th>
-                                    <th class="col-3">
+                                    <th class="col-2">
                                         Nama Penyakit
                                     </th>
-                                    <th class="col-4">
+                                    <th class="col-3">
                                         Deskripsi Penyakit
                                     </th>
                                     <th class="col-4">
