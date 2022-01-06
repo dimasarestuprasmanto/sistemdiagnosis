@@ -61,8 +61,15 @@ class Penyakit extends CI_Controller
                 'image' => $gambar
             ];
 
-            $this->db->insert('problems', $data);
-            redirect(base_url('/admin/penyakit'));
+            $query = $this->db->insert('problems', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data penyakit berhasil ditambah');
+                redirect(base_url('/admin/penyakit'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal ditambah, mohon ulangi lagi');
+                redirect(base_url('/admin/penyakit'));
+            }
         }
     }
 
@@ -106,16 +113,28 @@ class Penyakit extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Di Edit');
-            redirect(base_url('/admin/penyakit'));
+            $query = $this->db->update('problems', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data berhasil diubah');
+                redirect(base_url('/admin/penyakit'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal diubah');
+                redirect(base_url('/admin/penyakit'));
+            }
         }
     }
 
     public function hapus($id)
     {
-        $this->db->delete('problems', array('id' => $id));
-        $this->session->set_flashdata('flash-penyakit', 'DiHapus');
-        redirect(base_url('/admin/penyakit'));
+        $query = $this->db->delete('problems', array('id' => $id));
+        if($query){
+            $this->session->set_flashdata('success', 'Data penyakit berhasil dihapus');
+            redirect(base_url('/admin/penyakit'));
+        }
+        else{
+            $this->session->set_flashdata('error', 'Data tidak bisa dihapus karena masih berelasi dengan tabel lain!');
+            redirect(base_url('/admin/penyakit'));
+        }      
     }
 }

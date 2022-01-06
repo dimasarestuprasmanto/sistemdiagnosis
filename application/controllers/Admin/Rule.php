@@ -48,8 +48,15 @@ class Rule extends CI_Controller
                 'gejala_id' => $this->input->post('gejala')
             ];
 
-            $this->db->insert('rules', $data);
-            redirect(base_url('/admin/rule'));
+            $query = $this->db->insert('rules', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data rule berhasil ditambah');
+                redirect(base_url('/admin/rule'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal ditambah ');
+                redirect(base_url('/admin/rule'));
+            }             
         }
     }
 
@@ -76,14 +83,27 @@ class Rule extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('rules', $data);
-            redirect(base_url('/admin/rule'));
+            $query = $this->db->update('rules', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data rule berhasil diubah');
+                redirect(base_url('/admin/rule'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal diubah ');
+                redirect(base_url('/admin/rule'));
+            }          
         }
     }
     public function hapus($id)
     {
-        $query = $this->db->delete('rules', array('id' => $id));
-        $this->session->set_flashdata('flash', 'DiHapus');
-        redirect(base_url('/admin/rule'));
+        $query = $this->db->delete('rules', array('id' => $id));            
+        if($query){
+            $this->session->set_flashdata('success', 'Data rule berhasil dihapus');
+            redirect(base_url('/admin/rule'));
+        }
+        else{
+            $this->session->set_flashdata('error', 'Data gagal dihapus ');
+            redirect(base_url('/admin/rule'));
+        }   
     }
 }
