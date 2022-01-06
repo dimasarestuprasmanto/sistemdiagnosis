@@ -5,7 +5,6 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Gejala Tanaman Bawang Merah</h4>
-<<<<<<< HEAD
                     <?php if($this->session->flashdata('success')){ ?>
                     <div class="alert alert-success">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -28,13 +27,6 @@
                         ?>
                     </div>
                     <?php }?>
-=======
-                    <?php if ($this->session->flashdata('flash')) : ?>
-                        <div class="alert alert-primary" role="alert">
-                            Data Gejala <?= $this->session->flashdata('flash'); ?>
-                        </div>
-                    <?php endif ?>
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
 
                     <a href="gejala/tambah_gejala" type="button" class="btn btn-primary btn-fw float-right">Tambah Gejala</a>
                     <div class="table-responsive pt-3">

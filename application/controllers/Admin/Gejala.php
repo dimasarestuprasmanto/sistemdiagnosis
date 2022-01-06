@@ -90,10 +90,10 @@ class Gejala extends CI_Controller
         $result = $this->GejalaModel->deleteById($id);
 
         if ($result == false) {
-            $this->session->set_flashdata('flash', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            $this->session->set_flashdata('error', 'Gagal dihapus karena data berelasi dengan data di tabel Rules');
             redirect(base_url('/admin/gejala'));
         } else {
-            $this->session->set_flashdata('flash', 'Berhasil DiHapus');
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
             redirect(base_url('/admin/gejala'));
         }
     }

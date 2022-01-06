@@ -130,10 +130,10 @@ class Penyakit extends CI_Controller
         $result = $this->ProblemsModel->deleteById($id);
 
         if ($result == false) {
-            $this->session->set_flashdata('flash-penyakit', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            $this->session->set_flashdata('error', 'Gagal dihapus karena data berelasi dengan data di tabel Rules');
             redirect(base_url('/admin/penyakit'));
         } else {
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil DiHapus');
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
             redirect(base_url('/admin/penyakit'));
         }
     }
