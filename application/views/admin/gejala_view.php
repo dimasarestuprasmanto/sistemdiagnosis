@@ -7,7 +7,7 @@
                     <h4 class="card-title">Data Gejala Tanaman Bawang Merah</h4>
                     <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-primary" role="alert">
-                            Data Gejala Berhasil <?= $this->session->flashdata('flash'); ?>
+                            Data Gejala <?= $this->session->flashdata('flash'); ?>
                         </div>
                     <?php endif ?>
 

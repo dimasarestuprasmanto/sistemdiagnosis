@@ -62,6 +62,7 @@ class Penyakit extends CI_Controller
             ];
 
             $this->db->insert('problems', $data);
+            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Tambah');
             redirect(base_url('/admin/penyakit'));
         }
     }
@@ -107,15 +108,21 @@ class Penyakit extends CI_Controller
 
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Di Edit');
+            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Edit');
             redirect(base_url('/admin/penyakit'));
         }
     }
 
     public function hapus($id)
     {
-        $this->db->delete('problems', array('id' => $id));
-        $this->session->set_flashdata('flash-penyakit', 'DiHapus');
-        redirect(base_url('/admin/penyakit'));
+        $result = $this->ProblemsModel->deleteById($id);
+
+        if ($result == false) {
+            $this->session->set_flashdata('flash-penyakit', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            redirect(base_url('/admin/penyakit'));
+        } else {
+            $this->session->set_flashdata('flash-penyakit', 'Berhasil DiHapus');
+            redirect(base_url('/admin/penyakit'));
+        }
     }
 }

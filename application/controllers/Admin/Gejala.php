@@ -43,7 +43,7 @@ class Gejala extends CI_Controller
             ];
 
             $this->db->insert('gejala', $data);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Berhasil Ditambahkan');
             redirect(base_url('/admin/gejala'));
         }
     }
@@ -69,14 +69,20 @@ class Gejala extends CI_Controller
 
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('gejala', $data);
-            $this->session->set_flashdata('flash', 'Di Edit');
+            $this->session->set_flashdata('flash', 'Berhasil Di Edit');
             redirect(base_url('/admin/gejala'));
         }
     }
     public function hapus($id)
     {
-        $this->db->delete('gejala', array('id' => $id));
-        $this->session->set_flashdata('flash', 'DiHapus');
-        redirect(base_url('/admin/gejala'));
+        $result = $this->GejalaModel->deleteById($id);
+
+        if ($result == false) {
+            $this->session->set_flashdata('flash', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            redirect(base_url('/admin/gejala'));
+        } else {
+            $this->session->set_flashdata('flash', 'Berhasil DiHapus');
+            redirect(base_url('/admin/gejala'));
+        }
     }
 }
