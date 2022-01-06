@@ -43,4 +43,18 @@ class ProblemsModel extends CI_Model
 
         return $query->row_array();
     }
+
+    function deleteById($id)
+    {
+        $query = "DELETE FROM problems WHERE id = '$id'";
+        # The cat's leap: teste as tabelas antes de tentar excluir o principal
+        $this->db->where('problems_id', $id);
+        $test = $this->db->get('rules');
+        if (empty($test->result_array())) {
+            $this->db->query($query);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
