@@ -61,7 +61,6 @@ class Penyakit extends CI_Controller
                 'image' => $gambar
             ];
 
-<<<<<<< HEAD
             $query = $this->db->insert('problems', $data);
             if($query){
                 $this->session->set_flashdata('success', 'Data penyakit berhasil ditambah');
@@ -71,11 +70,6 @@ class Penyakit extends CI_Controller
                 $this->session->set_flashdata('error', 'Data gagal ditambah, mohon ulangi lagi');
                 redirect(base_url('/admin/penyakit'));
             }
-=======
-            $this->db->insert('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Tambah');
-            redirect(base_url('/admin/penyakit'));
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
         }
     }
 
@@ -119,7 +113,6 @@ class Penyakit extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-<<<<<<< HEAD
             $query = $this->db->update('problems', $data);
             if($query){
                 $this->session->set_flashdata('success', 'Data berhasil diubah');
@@ -129,27 +122,11 @@ class Penyakit extends CI_Controller
                 $this->session->set_flashdata('error', 'Data gagal diubah');
                 redirect(base_url('/admin/penyakit'));
             }
-=======
-            $this->db->update('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Edit');
-            redirect(base_url('/admin/penyakit'));
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
         }
     }
 
     public function hapus($id)
     {
-<<<<<<< HEAD
-        $query = $this->db->delete('problems', array('id' => $id));
-        if($query){
-            $this->session->set_flashdata('success', 'Data penyakit berhasil dihapus');
-            redirect(base_url('/admin/penyakit'));
-        }
-        else{
-            $this->session->set_flashdata('error', 'Data tidak bisa dihapus karena masih berelasi dengan tabel lain!');
-            redirect(base_url('/admin/penyakit'));
-        }      
-=======
         $result = $this->ProblemsModel->deleteById($id);
 
         if ($result == false) {
@@ -159,6 +136,5 @@ class Penyakit extends CI_Controller
             $this->session->set_flashdata('flash-penyakit', 'Berhasil DiHapus');
             redirect(base_url('/admin/penyakit'));
         }
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
     }
 }

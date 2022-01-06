@@ -42,7 +42,6 @@ class Gejala extends CI_Controller
                 'description' => $this->input->post('deskripsi')
             ];
 
-<<<<<<< HEAD
             $query = $this->db->insert('gejala', $data);
             if($query){
                 $this->session->set_flashdata('success', 'Data gejala berhasil ditambah');
@@ -52,11 +51,6 @@ class Gejala extends CI_Controller
                 $this->session->set_flashdata('error', 'Data gagal ditambah, mohon ulangi lagi');
                 redirect(base_url('/admin/gejala'));
             }        
-=======
-            $this->db->insert('gejala', $data);
-            $this->session->set_flashdata('flash', 'Berhasil Ditambahkan');
-            redirect(base_url('/admin/gejala'));
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
         }
     }
 
@@ -80,7 +74,6 @@ class Gejala extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-<<<<<<< HEAD
             $query = $this->db->update('gejala', $data);
             if($query){
                 $this->session->set_flashdata('success', 'Data gejala berhasil diubah');
@@ -90,26 +83,10 @@ class Gejala extends CI_Controller
                 $this->session->set_flashdata('error', 'Data gagal diubah, mohon ulangi lagi');
                 redirect(base_url('/admin/gejala'));
             }     
-=======
-            $this->db->update('gejala', $data);
-            $this->session->set_flashdata('flash', 'Berhasil Di Edit');
-            redirect(base_url('/admin/gejala'));
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
         }
     }
     public function hapus($id)
     {
-<<<<<<< HEAD
-        $query = $this->db->delete('gejala', array('id' => $id));
-        if($query){
-            $this->session->set_flashdata('success', 'Data gejala berhasil dihapus');
-            redirect(base_url('/admin/gejala'));
-        }
-        else{
-            $this->session->set_flashdata('error', 'Data gagal dihapus');
-            redirect(base_url('/admin/gejala'));
-        }     
-=======
         $result = $this->GejalaModel->deleteById($id);
 
         if ($result == false) {
@@ -119,6 +96,5 @@ class Gejala extends CI_Controller
             $this->session->set_flashdata('flash', 'Berhasil DiHapus');
             redirect(base_url('/admin/gejala'));
         }
->>>>>>> 6480ceeb22f2fe6722f384f17d84b2b50f55cd47
     }
 }
