@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="">Penyakit : <?= $data['name']; ?></h2>
-                    <img class="rounded mx-auto d-block" src="<?= base_url('assets/images/penyakit/' . $data['image']) ?>" alt="..." width="350" height="350" />
+                    <img class="img-fluid" src="<?= base_url('assets/images/penyakit/' . $data['image']) ?>" alt="Responsive image" />
 
                     <h2 class="mt-5">Deskripsi Penyakit</h2>
                     <p><?= $data['description']; ?></p>
