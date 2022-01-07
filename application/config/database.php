@@ -79,6 +79,10 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => '',
 	'database' => 'db_sistempakar',
+	//enable jika ingin nyoba di hosting
+	//'username' => 'brcfgehl_portofolio',
+	//'password' => 'AriSmrd007!!!',
+	//'database' => 'brcfgehl_konsultasi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
