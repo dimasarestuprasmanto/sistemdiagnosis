@@ -61,9 +61,15 @@ class Penyakit extends CI_Controller
                 'image' => $gambar
             ];
 
-            $this->db->insert('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Tambah');
-            redirect(base_url('/admin/penyakit'));
+            $query = $this->db->insert('problems', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data penyakit berhasil ditambah');
+                redirect(base_url('/admin/penyakit'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal ditambah, mohon ulangi lagi');
+                redirect(base_url('/admin/penyakit'));
+            }
         }
     }
 
@@ -107,9 +113,15 @@ class Penyakit extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('problems', $data);
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil Di Edit');
-            redirect(base_url('/admin/penyakit'));
+            $query = $this->db->update('problems', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data berhasil diubah');
+                redirect(base_url('/admin/penyakit'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal diubah');
+                redirect(base_url('/admin/penyakit'));
+            }
         }
     }
 
@@ -118,10 +130,10 @@ class Penyakit extends CI_Controller
         $result = $this->ProblemsModel->deleteById($id);
 
         if ($result == false) {
-            $this->session->set_flashdata('flash-penyakit', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            $this->session->set_flashdata('error', 'Gagal dihapus karena data berelasi dengan data di tabel Rules');
             redirect(base_url('/admin/penyakit'));
         } else {
-            $this->session->set_flashdata('flash-penyakit', 'Berhasil DiHapus');
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
             redirect(base_url('/admin/penyakit'));
         }
     }

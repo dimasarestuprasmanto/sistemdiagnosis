@@ -1,0 +1,7 @@
+deployment:
+ 
+ tasks:
+ 
+ - export DEPLOYPATH=/home/brcfgehl/konsultasi.arisumardi.my.id
+ 
+ - /usr/bin/rsync -Paz * $DEPLOYPATH --delete

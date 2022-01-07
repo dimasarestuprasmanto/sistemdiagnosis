@@ -42,9 +42,15 @@ class Gejala extends CI_Controller
                 'description' => $this->input->post('deskripsi')
             ];
 
-            $this->db->insert('gejala', $data);
-            $this->session->set_flashdata('flash', 'Berhasil Ditambahkan');
-            redirect(base_url('/admin/gejala'));
+            $query = $this->db->insert('gejala', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data gejala berhasil ditambah');
+                redirect(base_url('/admin/gejala'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal ditambah, mohon ulangi lagi');
+                redirect(base_url('/admin/gejala'));
+            }        
         }
     }
 
@@ -68,9 +74,15 @@ class Gejala extends CI_Controller
             ];
 
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('gejala', $data);
-            $this->session->set_flashdata('flash', 'Berhasil Di Edit');
-            redirect(base_url('/admin/gejala'));
+            $query = $this->db->update('gejala', $data);
+            if($query){
+                $this->session->set_flashdata('success', 'Data gejala berhasil diubah');
+                redirect(base_url('/admin/gejala'));
+            }
+            else{
+                $this->session->set_flashdata('error', 'Data gagal diubah, mohon ulangi lagi');
+                redirect(base_url('/admin/gejala'));
+            }     
         }
     }
     public function hapus($id)
@@ -78,10 +90,10 @@ class Gejala extends CI_Controller
         $result = $this->GejalaModel->deleteById($id);
 
         if ($result == false) {
-            $this->session->set_flashdata('flash', 'Gagal DiHapus Dikarenakan ada data berelasi di data Rules');
+            $this->session->set_flashdata('error', 'Gagal dihapus karena data berelasi dengan data di tabel Rules');
             redirect(base_url('/admin/gejala'));
         } else {
-            $this->session->set_flashdata('flash', 'Berhasil DiHapus');
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
             redirect(base_url('/admin/gejala'));
         }
     }
