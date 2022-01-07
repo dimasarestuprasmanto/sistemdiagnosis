@@ -15,8 +15,15 @@ class Diagnosis extends CI_Controller
     }
     public function index()
     {
+        if ($this->input->post('gejala') == null) {
+            $check = '0';
+        } else {
+            $check = count($this->input->post('gejala'));
+        }
+
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
-            if (count($this->input->post('gejala')) < 2) {
+            if ($check < 2) {
+                $this->session->set_flashdata('error', 'Pilih minimal 2 gejala');
                 $data['title'] = 'Diagnosis';
                 $data['datagejala'] = $this->GejalaModel->getAll();
                 $this->load->view('template/header', $data);
@@ -24,7 +31,6 @@ class Diagnosis extends CI_Controller
                 $this->load->view('template/sidebar');
                 $this->load->view('user/diagnosis_penyakit_view.php');
                 $this->load->view('template/footer');
-                $this->session->set_flashdata('error', 'Pilih minimal 2 gejala');
             } else {
                 $listgejala = $this->DiagnosisModel->getGejala($this->input->post('gejala'));
                 $result = $this->DiagnosisModel->getfod();
