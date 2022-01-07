@@ -7,10 +7,10 @@
                                 <img src="<?= base_url('assets/images/logo.svg') ?>" alt="logo">
                             </div>
                             <h6 class="fw-light">Silahkan Login</h6>
-                            <?php echo $this->session->flashdata('msg');?>
-                            <form class="pt-3" action="<?php echo site_url('login/auth');?>" method="POST">
+                            <?php echo $this->session->flashdata('msg'); ?>
+                            <form class="pt-3" action="<?php echo site_url('login/auth'); ?>" method="POST">
                                 <div class="form-group">
-                                    <input type="text" autocomplete="off" spellcheck="false" aria-live="polite"  class="form-control form-control-lg" name="username" placeholder="Username">
+                                    <input type="text" autocomplete="off" spellcheck="false" aria-live="polite" class="form-control form-control-lg" name="username" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" name="password" placeholder="Kata Sandi">
