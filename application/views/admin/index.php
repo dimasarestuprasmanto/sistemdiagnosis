@@ -22,7 +22,7 @@
                             <div class="media">
                                 <i class="ti-world icon-md text-info d-flex align-self-start me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                                <p class="card-text">Jumlah data : </p>
                                 </div>
                             </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="media">
                                 <i class="ti-world icon-md text-info d-flex align-self-center me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                                <p class="card-text">Jumlah data : </p>
                                 </div>
                             </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="media">
                                 <i class="ti-world icon-md text-info d-flex align-self-end me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                                <p class="card-text">Jumlah pengguna :</p>
                                 </div>
                             </div>
                             </div>
