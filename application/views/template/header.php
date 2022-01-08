@@ -20,7 +20,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    
+    <style type="text/css">
+        a.card {
+        color: inherit;
+        text-decoration: inherit;
+        }
+        a.card button {
+        z-index: 1;
+        }
+
+        a.card.disabled,
+        a.card[disabled] {
+        pointer-events: none;
+        opacity: .8;
+        }
+    </style>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/vertical-layout-light/style.css') ?>">

@@ -4,9 +4,14 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Berdasarkan Gejala Yang Terdapat Pada Tanaman Bawang Merah Kemungkinan Penyakit</h4>
-                    <h2>Nama Penyakit : <?= isset($penyakit) ? $penyakit : '' ?></h2>
-                    <h6>Dengan Tingkat Kepercayaan : <?= isset($belief) ? $belief . '%' : '' ?></h6>
+                    <h4 class="card-title mb-2">Berdasarkan gejala yang terdapat pada Tanaman Bawang Merah kemungkinan penyakit</h4>
+                    <div class="clear-fix" style="height:2rem;"></div>
+                    <blockquote class="blockquote">
+                        <h5 class="mb-0">Nama Penyakit : <strong class="text-danger"><?= isset($penyakit) ? $penyakit : '' ?> </strong> </h5>
+                    </blockquote>
+                    <blockquote class="blockquote">
+                        <h5 class="mb-0">Dengan Tingkat Kepercayaan : <strong class="text-primary"> <?= isset($belief) ? $belief . '%' : '' ?></strong></h5>
+                    </blockquote>
                 </div>
             </div>
         </div>

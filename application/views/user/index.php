@@ -7,10 +7,42 @@
                 <div class="home-tab">
                     <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                         <div>
-                            <div class="btn-wrapper">
-                                <a href="diagnosis" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Konsultasi Penyakit</a>
-                                <a href="info" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Info Penyakit</a>
-                            </div>
+                            <h3 class="card-title">Halo selamat datang <strong class="text-primary"><?php echo $this->session->userdata('nama'); ?></strong> </h3>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Silahkan klik pada salah satu menu di bawah ini
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <a href="diagnosis/" class="card">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <h4 class="card-title">Diagnosis Penyakit</h4>
+                                    <div class="media">
+                                        <i class="mdi mdi-shield-search icon-md text-info d-flex align-self-center me-3"></i>
+                                        <div class="media-body">
+                                        <p class="card-text">Halaman ini berfungsi untuk mendiagnosa penyakit yang ada pada tanaman bawang merah</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <a href="info/" class="card">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <h4 class="card-title">Info Penyakit</h4>
+                                    <div class="media">
+                                        <i class="mdi mdi-information icon-md text-info d-flex align-self-end me-3"></i>
+                                        <div class="media-body">
+                                        <p class="card-text">Halaman ini berfungsi untuk menampilkan informasi berupa penyakit yang terdapat pada tanaman bawah merah</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
