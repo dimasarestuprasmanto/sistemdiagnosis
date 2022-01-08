@@ -5,6 +5,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Penyakit Tanaman Bawang Merah</h4>
+                    
+                    <a href="penyakit/tambah_penyakit"  type="button" class="btn btn-primary btn-icon-text">
+                          <i class="ti-plus btn-icon-prepend"></i>
+                          Tambah Data
+                    </a>
+
                     <?php if($this->session->flashdata('success')){ ?>
                     <div class="alert alert-success">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -27,9 +33,9 @@
                         ?>
                     </div>
                     <?php }?>
-                    <a href="penyakit/tambah_penyakit" type="button" class="btn btn-primary btn-fw float-right">Tambah Penyakit</a>
+
                     <div class="table-responsive pt-3">
-                        <table class="table table-bordered">
+                        <table class="table table-hover table-bordered" id="tabelpenyakit">
                             <thead>
                                 <tr>
                                     <th class="col-1">
@@ -83,6 +89,16 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+                        <script>
+                        $(document).ready(function () {
+                            $.noConflict();
+                            $('#tabelpenyakit').DataTable({
+                                language: {
+                                    url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json'
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
             </div>

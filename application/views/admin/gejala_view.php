@@ -30,7 +30,7 @@
 
                     <a href="gejala/tambah_gejala" type="button" class="btn btn-primary btn-fw float-right">Tambah Gejala</a>
                     <div class="table-responsive pt-3">
-                        <table class="table table-bordered">
+                        <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
                                     <th class="col-1">

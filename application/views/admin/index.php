@@ -14,6 +14,47 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                    <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Data Penyakit</h4>
+                  <div class="media">
+                    <i class="ti-world icon-md text-info d-flex align-self-start me-3"></i>
+                    <div class="media-body">
+                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Data Gejala</h4>
+                  <div class="media">
+                    <i class="ti-world icon-md text-info d-flex align-self-center me-3"></i>
+                    <div class="media-body">
+                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total Pengguna</h4>
+                  <div class="media">
+                    <i class="ti-world icon-md text-info d-flex align-self-end me-3"></i>
+                    <div class="media-body">
+                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                    </div>
                 </div>
             </div>
         </div>
