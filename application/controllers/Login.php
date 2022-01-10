@@ -11,6 +11,16 @@ class Login extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == '1' ) {
+            redirect('admin/home');
+        }
+        elseif($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == '2' ) {
+            redirect('user/home');
+        }
+        else{
+            //$this->session->set_flashdata('msg-login','Anda belum login!');
+        }
+
         $this->load->view('template/header');
         $this->load->view('login');
         $this->load->view('template/footer');
@@ -33,16 +43,14 @@ class Login extends CI_Controller
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($sesdata);
-            if($level === '1')
-            {
+            if($level === '1'){
                 redirect('admin/home');
             }
-            elseif($level === '2')
-            {
+            elseif($level === '2'){
                 redirect('user/home');
             }
         }else{
-            echo $this->session->set_flashdata('msg','Username atau kata sandi salah. Mohon ulangi!');
+            $this->session->set_flashdata('msg-error','Username atau kata sandi salah. Mohon ulangi!');
             redirect('login');
         }
       }

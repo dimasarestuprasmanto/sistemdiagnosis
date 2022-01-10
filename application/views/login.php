@@ -6,8 +6,25 @@
                             <div class="brand-logo">
                                 <img src="<?= base_url('assets/images/logo.png') ?>" alt="logo">
                             </div>
-                            <h6 class="fw-light">Silahkan Login</h6>
-                            <?php echo $this->session->flashdata('msg'); ?>
+                            
+                            <?php if($this->session->flashdata('msg-login')){ ?>
+                            <div class="alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <?php echo $this->session->flashdata('msg-login'); 
+                                unset($_SESSION['msg-login']);
+                                ?>
+                            </div>
+                            <?php } else if($this->session->flashdata('msg-error')){  ?>
+                            <div class="alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <?php echo $this->session->flashdata('msg-error'); 
+                                unset($_SESSION['msg-error']);
+                                ?>
+                            </div>
+                            <?php } else{  ?>
+                                <h6 class="fw-light"><b>Silahkan Login</b></h6>
+                            <?php }?>
+ 
                             <form class="pt-3" action="<?php echo site_url('login/auth'); ?>" method="POST">
                                 <div class="form-group">
                                     <input type="text" autocomplete="off" spellcheck="false" aria-live="polite" class="form-control form-control-lg" name="username" placeholder="Username">
