@@ -16,46 +16,52 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Data Penyakit</h4>
-                            <div class="media">
-                                <i class="mdi mdi-clipboard-plus icon-lg text-info d-flex align-self-start me-3"></i>
-                                <div class="media-body">
-                                <h4 class="card-text">Jumlah data </h4>
-                                <h3 class="text-primary"> <?php echo $totalPenyakit['count_penyakit']; ?> </h3>
+                        <a href="<?= base_url('admin/penyakit') ?>" class="card">
+                            <div class="card">
+                                <div class="card-body">
+                                <h4 class="card-title">Data Penyakit</h4>
+                                <div class="media">
+                                    <i class="mdi mdi-clipboard-outline icon-lg text-info d-flex align-self-start me-3"></i>
+                                    <div class="media-body">
+                                        <h4 class="card-text">Jumlah data </h4>
+                                        <h2 class="text-primary"> <?php echo $totalPenyakit['count_penyakit']; ?> </h2>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
+                        </a>
                         </div>
                         <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Data Gejala</h4>
-                            <div class="media">
-                                <i class="mdi mdi-clipboard-pulse icon-lg text-info d-flex align-self-center me-3"></i>
-                                <div class="media-body">
-                                <h4 class="card-text">Jumlah data </h4>
-                                <h3 class="text-primary"> <?php echo $totalGejala['count_gejala']; ?> </h3>
+                        <a href="<?= base_url('admin/gejala') ?>" class="card">
+                            <div class="card">
+                                <div class="card-body">
+                                <h4 class="card-title">Data Gejala</h4>
+                                <div class="media">
+                                    <i class="mdi mdi-clipboard-pulse-outline icon-lg text-info d-flex align-self-center me-3"></i>
+                                    <div class="media-body">
+                                        <h4 class="card-text">Jumlah data </h4>
+                                        <h2 class="text-primary"> <?php echo $totalGejala['count_gejala']; ?> </h2>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
+                        </a>
                         </div>
                         <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Total Pengguna</h4>
-                            <div class="media">
-                                <i class="mdi mdi-account-multiple icon-lg text-info d-flex align-self-end me-3"></i>
-                                <div class="media-body">
-                                <h4 class="card-text">Jumlah data </h4>
-                                <h3 class="text-primary"> <?php echo $totalUser['count_user']; ?> </h3>
+                        <a href="<?= base_url('admin/user') ?>" class="card">
+                            <div class="card">
+                                <div class="card-body">
+                                <h4 class="card-title">Total Pengguna</h4>
+                                <div class="media">
+                                    <i class="mdi mdi-account-box-outline icon-lg text-info d-flex align-self-end me-3"></i>
+                                    <div class="media-body">
+                                        <h4 class="card-text">Jumlah data </h4>
+                                        <h2 class="text-primary"> <?php echo $totalUser['count_user']; ?> </h2>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
+                        </a>
                         </div>
                     </div>
                 </div>

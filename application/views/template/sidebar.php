@@ -80,7 +80,7 @@
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="<?= base_url('admin/user') ?>">
-                           <i class="menu-icon mdi mdi-account-multiple-plus"></i>
+                           <i class="menu-icon mdi mdi-account-box"></i>
                            <span class="menu-title">Data user</span>
                        </a>
                    </li>

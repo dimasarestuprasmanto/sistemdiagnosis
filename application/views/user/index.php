@@ -16,7 +16,7 @@
                     </p>
                     <div class="row">
                         <div class="col-md-6 grid-margin stretch-card">
-                            <a href="diagnosis/" class="card">
+                            <a href="<?= base_url('user/diagnosis') ?>" class="card">
                                 <div class="card">
                                     <div class="card-body">
                                     <h4 class="card-title">Diagnosis Penyakit</h4>
