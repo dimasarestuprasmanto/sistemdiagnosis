@@ -7,10 +7,11 @@
                 <div class="home-tab">
                     <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                         <div>
-                            <h3 class="card-title">Halo selamat datang <strong class="text-primary"><?php echo $this->session->userdata('nama'); ?></strong> </h3>
+                            <h4 class="card-title">Halo selamat datang,</h4>
+                            <h4 class="mb-4 mt-2"><strong class="text-primary"><?php echo $this->session->userdata('nama'); ?></strong> </h4>
                         </div>
                     </div>
-                    <p class="card-description">
+                    <p class="card-description mb-2">
                         Silahkan klik pada salah satu menu di bawah ini
                     </p>
                     <div class="row">
