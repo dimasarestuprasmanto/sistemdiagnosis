@@ -18,7 +18,7 @@
                                     </h6>
 
                                     <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                        <a href="info/detail/<?= $p->id ?>" class="btn btn-success">Detail</a>
+                                        <a href="info/detail/<?= encrypt_url($p->id) ?>" class="btn btn-success">Detail</a>
                                     </div>
                                 </div>
                             </div>

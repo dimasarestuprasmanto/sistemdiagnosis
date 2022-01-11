@@ -27,8 +27,8 @@ class Info extends CI_Controller
     public function detail($id)
     {
         $data['title'] = 'Info';
-        $data['data'] = $this->ProblemsModel->getById($id);
-        $data['gejala'] = $this->ProblemsModel->getGejala($id);
+        $data['data'] = $this->ProblemsModel->getById(decrypt_url($id));
+        $data['gejala'] = $this->ProblemsModel->getGejala(decrypt_url($id));
         $this->load->view('template/header', $data);
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
