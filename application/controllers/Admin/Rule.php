@@ -62,7 +62,7 @@ class Rule extends CI_Controller
 
     public function edit($id)
     {
-        $data['data'] = $this->RulesModel->getById($id);
+        $data['data'] = $this->RulesModel->getById(decrypt_url($id));
         $data['datagejala'] = $this->GejalaModel->getAll();
         $data['dataproblems'] = $this->ProblemsModel->getAll();
 

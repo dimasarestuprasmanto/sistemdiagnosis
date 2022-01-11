@@ -56,7 +56,7 @@ class Gejala extends CI_Controller
 
     public function edit($id)
     {
-        $data['data'] = $this->GejalaModel->getById($id);
+        $data['data'] = $this->GejalaModel->getById(decrypt_url($id));
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 
@@ -88,7 +88,7 @@ class Gejala extends CI_Controller
     public function hapus($id)
     {
         $result = $this->GejalaModel->deleteById($id);
-
+        
         if ($result == false) {
             $this->session->set_flashdata('error', 'Gagal dihapus karena data berelasi dengan data di tabel Rules');
             redirect(base_url('/admin/gejala'));

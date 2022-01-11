@@ -9,17 +9,21 @@
                             
                             <?php if($this->session->flashdata('msg-login')){ ?>
                             <div class="alert alert-danger">
-                                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                <?php echo $this->session->flashdata('msg-login'); 
-                                unset($_SESSION['msg-login']);
-                                ?>
+                            <i class="mdi mdi-information-outline"></i>
+                                <strong> 
+                                    <?php echo $this->session->flashdata('msg-login'); 
+                                        unset($_SESSION['msg-login']);
+                                    ?>
+                                </strong>
                             </div>
                             <?php } else if($this->session->flashdata('msg-error')){  ?>
                             <div class="alert alert-danger">
-                                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                <?php echo $this->session->flashdata('msg-error'); 
-                                unset($_SESSION['msg-error']);
-                                ?>
+                                <i class="mdi mdi-information-outline"></i>
+                                <strong>
+                                    <?php echo $this->session->flashdata('msg-error');
+                                        unset($_SESSION['msg-error']);
+                                    ?>
+                                </strong>
                             </div>
                             <?php } else{  ?>
                                 <h6 class="fw-light"><b>Silahkan Login</b></h6>

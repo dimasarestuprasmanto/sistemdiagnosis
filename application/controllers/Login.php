@@ -50,7 +50,7 @@ class Login extends CI_Controller
                 redirect('user/home');
             }
         }else{
-            $this->session->set_flashdata('msg-error','Username atau kata sandi salah. Mohon ulangi!');
+            $this->session->set_flashdata('msg-error','Username atau kata sandi salah!');
             redirect('login');
         }
       }

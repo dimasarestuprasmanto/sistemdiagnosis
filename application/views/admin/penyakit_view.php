@@ -6,33 +6,41 @@
                 <div class="card-body">
                     <h4 class="card-title">Data Penyakit Tanaman Bawang Merah</h4>
                     
+
+                    
+                    <?php if($this->session->flashdata('success')){ ?>
+                    <div class="alert alert-success">
+                        <a href="<?php base_url('admin/penyakit/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-check"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('success'); 
+                                unset($_SESSION['success']);
+                            ?>
+                        </strong>
+                    </div>
+                     <?php } else if($this->session->flashdata('error')){  ?>
+                    <div class="alert alert-danger">
+                        <a href="<?php base_url('admin/penyakit/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-information-outline"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('error'); 
+                                unset($_SESSION['error']);
+                            ?>
+                        </strong>
+                    </div>
+                    <?php } else if($this->session->flashdata('warning')){  ?>
+                    <div class="alert alert-warning">
+                        <a href="<?php base_url('admin/penyakit/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-information-outline"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('warning'); 
+                                unset($_SESSION['warning']);
+                            ?>
+                        </strong>
+                    </div>
+                    <?php }?>
+
                     <a href="penyakit/tambah_penyakit"  type="button" class="btn btn-primary btn-icon-text">
                           <i class="ti-plus btn-icon-prepend"></i>
                           Tambah Data
                     </a>
-
-                    <?php if($this->session->flashdata('success')){ ?>
-                    <div class="alert alert-success">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('success'); 
-                        unset($_SESSION['success']);
-                        ?>
-                    </div>
-                     <?php } else if($this->session->flashdata('error')){  ?>
-                    <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('error'); 
-                        unset($_SESSION['error']);
-                        ?>
-                    </div>
-                    <?php } else if($this->session->flashdata('warning')){  ?>
-                    <div class="alert alert-warning">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('warning'); 
-                        unset($_SESSION['warning']);
-                        ?>
-                    </div>
-                    <?php }?>
 
                     <div class="table-responsive pt-3">
                         <table class="table table-hover table-bordered" id="tabelpenyakit">
@@ -77,7 +85,7 @@
                                             <center><img src=" <?= base_url('assets/images/penyakit/' . $p->image) ?>"></center>
                                         </td>
                                         <td>
-                                            <a href="penyakit/edit/<?= $p->id ?>" class="btn-sm btn-inverse-info btn-icon">
+                                            <a href="penyakit/edit/<?= encrypt_url($p->id) ?>" class="btn-sm btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-lead-pencil"></i>
                                             </a>
                                             &nbsp

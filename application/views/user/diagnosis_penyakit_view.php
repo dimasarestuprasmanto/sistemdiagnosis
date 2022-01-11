@@ -21,13 +21,15 @@
                 <div class="card-body">
                     <?php if ($this->session->flashdata('error')) {  ?>
                         <div class="alert alert-danger">
-                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <i class="mdi mdi-information-outline"></i>
+                            <strong>
                             <?php echo $this->session->flashdata('error');
-                            unset($_SESSION['error']);
-                            ?>
+                                unset($_SESSION['error']);
+                                ?>
+                            </strong>
                         </div>
                     <?php } ?>
-                    <h4 class="card-title">Gejala Yang Dipilih</h4>
+                    <h4 class="card-title">Gejala yang Dipilih</h4>
                     <form class="forms-sample" action="" method="POST">
                         <div class="form-group">
                             <?php foreach ($datagejala as $d) : ?>

@@ -13,10 +13,13 @@ class Home extends CI_Controller
     }
     public function index()
     {
+        $title = 'Dashboard';
+        $data['title'] = $title;
         $this->load->view('template/header');
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
         $this->load->view('admin/index');
         $this->load->view('template/footer');
+
     }
 }

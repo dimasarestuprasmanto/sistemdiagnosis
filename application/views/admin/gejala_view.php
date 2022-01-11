@@ -7,24 +7,30 @@
                     <h4 class="card-title">Data Gejala Tanaman Bawang Merah</h4>
                     <?php if($this->session->flashdata('success')){ ?>
                     <div class="alert alert-success">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('success'); 
-                        unset($_SESSION['success']);
-                        ?>
+                        <a href="<?php base_url('admin/gejala/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-check"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('success'); 
+                                unset($_SESSION['success']);
+                            ?>
+                        </strong>
                     </div>
                      <?php } else if($this->session->flashdata('error')){  ?>
                     <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('error'); 
-                        unset($_SESSION['error']);
-                        ?>
+                        <a href="<?php base_url('admin/gejala/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-information-outline"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('error'); 
+                                unset($_SESSION['error']);
+                            ?>
+                        </strong>
                     </div>
                     <?php } else if($this->session->flashdata('warning')){  ?>
                     <div class="alert alert-warning">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <?php echo $this->session->flashdata('warning'); 
-                        unset($_SESSION['warning']);
-                        ?>
+                        <a href="<?php base_url('admin/gejala/');?>" class="close" data-dismiss="alert"><i class="mdi mdi-information-outline"></i></a>
+                        <strong>
+                            <?php echo $this->session->flashdata('warning'); 
+                                unset($_SESSION['warning']);
+                            ?>
+                        </strong>
                     </div>
                     <?php }?>
 
@@ -61,7 +67,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="gejala/edit/<?= $g->id ?>" class="btn-sm btn-inverse-info btn-icon">
+                                            <a href="gejala/edit/<?= encrypt_url($g->id) ?>" class="btn-sm btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-lead-pencil"></i>
                                             </a>
                                             &nbsp

@@ -75,7 +75,7 @@ class Penyakit extends CI_Controller
 
     public function edit($id)
     {
-        $data['data'] = $this->ProblemsModel->getById($id);
+        $data['data'] = $this->ProblemsModel->getById(decrypt_url($id));
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
         $this->form_validation->set_rules('solusi', 'Solusi', 'required');
