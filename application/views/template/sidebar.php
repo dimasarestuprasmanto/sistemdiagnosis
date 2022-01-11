@@ -78,6 +78,12 @@
                            <span class="menu-title">Data Rule</span>
                        </a>
                    </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?= base_url('admin/user') ?>">
+                           <i class="menu-icon mdi mdi-account-multiple-plus"></i>
+                           <span class="menu-title">Data user</span>
+                       </a>
+                   </li>
                <?php endif; ?>
            </ul>
        </nav>
