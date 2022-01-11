@@ -20,9 +20,10 @@
                             <div class="card-body">
                             <h4 class="card-title">Data Penyakit</h4>
                             <div class="media">
-                                <i class="ti-world icon-md text-info d-flex align-self-start me-3"></i>
+                                <i class="mdi mdi-clipboard-plus icon-lg text-info d-flex align-self-start me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Jumlah data : </p>
+                                <h4 class="card-text">Jumlah data </h4>
+                                <h3 class="text-primary"> <?php echo $totalPenyakit['count_penyakit']; ?> </h3>
                                 </div>
                             </div>
                             </div>
@@ -33,9 +34,10 @@
                             <div class="card-body">
                             <h4 class="card-title">Data Gejala</h4>
                             <div class="media">
-                                <i class="ti-world icon-md text-info d-flex align-self-center me-3"></i>
+                                <i class="mdi mdi-clipboard-pulse icon-lg text-info d-flex align-self-center me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Jumlah data : </p>
+                                <h4 class="card-text">Jumlah data </h4>
+                                <h3 class="text-primary"> <?php echo $totalGejala['count_gejala']; ?> </h3>
                                 </div>
                             </div>
                             </div>
@@ -46,9 +48,10 @@
                             <div class="card-body">
                             <h4 class="card-title">Total Pengguna</h4>
                             <div class="media">
-                                <i class="ti-world icon-md text-info d-flex align-self-end me-3"></i>
+                                <i class="mdi mdi-account-multiple icon-lg text-info d-flex align-self-end me-3"></i>
                                 <div class="media-body">
-                                <p class="card-text">Jumlah pengguna :</p>
+                                <h4 class="card-text">Jumlah data </h4>
+                                <h3 class="text-primary"> <?php echo $totalUser['count_user']; ?> </h3>
                                 </div>
                             </div>
                             </div>

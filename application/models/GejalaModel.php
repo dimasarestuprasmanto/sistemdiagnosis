@@ -47,4 +47,10 @@ class GejalaModel extends CI_Model
             return false;
         }
     }
+
+    function getCountGejala()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count_gejala FROM gejala");
+        return $query->row_array();
+    }
 }

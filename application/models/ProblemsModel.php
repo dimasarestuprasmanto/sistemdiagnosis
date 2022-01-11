@@ -57,4 +57,10 @@ class ProblemsModel extends CI_Model
             return false;
         }
     }
+
+    function getCountPenyakit()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count_penyakit FROM problems");
+        return $query->row_array();
+    }
 }
