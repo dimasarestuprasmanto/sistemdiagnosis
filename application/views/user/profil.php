@@ -1,12 +1,14 @@
 <div class="main-panel">
     <div class="content-wrapper">
 
-        <div class="row">
-            <div class="col-4">
-                <img src="<?= base_url('assets/images/penyakit/default.jpg') ?>" alt="" class="card">
+        <div class="row gx-4 gx-lg-12 row-cols-12 row-cols-md-11 row-cols-xl-12">
+            <div class="col p-2">
+                <div class="card">
+                    <img src="<?= base_url('assets/images/penyakit/default.jpg') ?>" alt="">
+                </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-xl-8 p-2">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Profile User</h4>
