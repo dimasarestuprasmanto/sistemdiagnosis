@@ -30,7 +30,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 grid-margin stretch-card">
-                            <a href="info/" class="card">
+                            <a href="<?= base_url('user/info') ?>" class="card">
                                 <div class="card">
                                     <div class="card-body">
                                     <h4 class="card-title">Info Penyakit</h4>
