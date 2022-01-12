@@ -34,9 +34,13 @@
                     </div>
                     <?php }?>
                     
-                    <a href="rule/tambah_rule" type="button" class="btn btn-primary btn-fw float-right">Tambah Rule</a>
+                    <a href="rule/tambah_rule" type="button" class="btn btn-primary btn-icon-text">
+                          <i class="ti-plus btn-icon-prepend"></i>
+                          Tambah Data
+                    </a>
+
                     <div class="table-responsive pt-3">
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover table-bordered" id="tabelrule">
                             <thead>
                                 <tr>
                                     <th class="col-1">
@@ -84,6 +88,16 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+                        <script>
+                        $(document).ready(function () {
+                            $.noConflict();
+                            $('#tabelrule').DataTable({
+                                language: {
+                                    url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json'
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
             </div>

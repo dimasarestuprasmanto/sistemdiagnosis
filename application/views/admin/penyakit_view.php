@@ -37,7 +37,7 @@
                     </div>
                     <?php }?>
 
-                    <a href="penyakit/tambah_penyakit"  type="button" class="btn btn-primary btn-icon-text">
+                    <a href="penyakit/tambah_penyakit" type="button" class="btn btn-primary btn-icon-text">
                           <i class="ti-plus btn-icon-prepend"></i>
                           Tambah Data
                     </a>
