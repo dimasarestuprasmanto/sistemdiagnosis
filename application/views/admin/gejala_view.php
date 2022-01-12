@@ -34,9 +34,13 @@
                     </div>
                     <?php }?>
 
-                    <a href="gejala/tambah_gejala" type="button" class="btn btn-primary btn-fw float-right">Tambah Gejala</a>
+                    <a href="gejala/tambah_gejala" type="button" class="btn btn-primary btn-icon-text">
+                          <i class="ti-plus btn-icon-prepend"></i>
+                          Tambah Data
+                    </a>
+
                     <div class="table-responsive pt-3">
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover table-bordered" id="tabelgejala">
                             <thead>
                                 <tr>
                                     <th class="col-1">
@@ -79,6 +83,16 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+                        <script>
+                        $(document).ready(function () {
+                            $.noConflict();
+                            $('#tabelgejala').DataTable({
+                                language: {
+                                    url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json'
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
