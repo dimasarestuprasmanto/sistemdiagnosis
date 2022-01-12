@@ -15,7 +15,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">Alamat</label>
-                            <textarea class="form-control" id="examplealamat1" rows="4" readonly></textarea>
+                            <textarea name="alamat"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary me-2">Submit</button>

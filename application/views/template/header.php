@@ -34,6 +34,17 @@
         pointer-events: none;
         opacity: .8;
         }
+        textarea{
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 1px solid #d9d6ce;
+            border-radius: 4px;
+            background-color: #FFF;
+            font-size: 16px;
+            resize: none;
+        }
     </style>
     <!-- End plugin css for this page -->
     <!-- inject:css -->

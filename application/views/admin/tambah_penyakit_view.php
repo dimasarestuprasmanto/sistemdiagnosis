@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea1">Solusi</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="solusi"></textarea>
+                        <textarea name="solusi"></textarea>
                         <?= form_error('solusi', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">

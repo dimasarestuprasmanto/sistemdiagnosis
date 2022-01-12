@@ -14,15 +14,18 @@ class User extends CI_Controller
     }
     public function index()
     {
+        $data['datapengguna'] = $this->UserModel->getAll();
+
         $this->load->view('template/header');
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
-        $this->load->view('admin/user_view');
+        $this->load->view('admin/user_view',$data);
         $this->load->view('template/footer');
     }
 
     public function tambah_user()
     {
+
         $this->load->view('template/header');
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');

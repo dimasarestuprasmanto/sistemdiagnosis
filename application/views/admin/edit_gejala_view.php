@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleTextarea1">Deskripsi</label>
-                            <textarea class="form-control" id="exampleTextarea1" rows="4" name="deskripsi"><?= $data['description']; ?></textarea>
+                            <textarea name="deskripsi"><?= $data['description']; ?></textarea>
                             <?= form_error('deskripsi', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
