@@ -8,7 +8,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                         <div>
                             <h4 class="card-title">Halo selamat datang,</h4>
-                            <h4 class="mb-4 mt-2"><strong class="text-primary"><?php echo $this->session->userdata('nama'); ?></strong> </h4>
+                            <h4 class="mb-4 mt-2"><strong class="text-info"><?php echo $this->session->userdata('nama'); ?></strong> </h4>
                         </div>
                     </div>
                     <p class="card-description mb-2">
