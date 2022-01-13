@@ -1,33 +1,34 @@
 <div class="main-panel">
     <div class="content-wrapper">
-        <section class="py-5">
-        <h3 class="card-title">Daftar Penyakit</h3>
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="home-tab">
+                    <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                        <div>
+                            <h4 class="card-title">Daftar Penyakit</h4>
+                        </div>
+                    </div>
+                    <p class="card-description mb-2">
+                        Silahkan klik pada gambar untuk melihat lebih detail.
+                    </p>
+                    <div class="row">
                     <?php foreach ($datapenyakit as $p) : ?>
-                        <div class="col mb-5">
+                        <a href="info/detail/<?= encrypt_url($p->id) ?>">
+                        <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
-                                <!-- Product image-->
-                                <img class="card-img-top img-responsive" src="<?= base_url('assets/images/penyakit/' . $p->image) ?>" alt="..." width="170px" height="230px" />
-                                <!-- Product details-->
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h6 class="fw-bolder">
-                                        <p class="truncate mt-1"><?= $p->name ?></p>
-                                    </h6>
-
-                                    <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                        <a href="info/detail/<?= encrypt_url($p->id) ?>" class="btn btn-sm btn-success">Detail</a>
-                                    </div>
-                                </div>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="card-img-top embed-responsive-item" src="<?= base_url('assets/images/penyakit/' . $p->image) ?>" />
+                            </div>
+                            <div class="card-block mb-3 mt-3 text-center">
+                                <h5 class="mb-0 card-title"><?= $p->name ?></h5>
+                            </div>
                             </div>
                         </div>
+                        </a>
                     <?php endforeach ?>
-
+                    </div>
                 </div>
-
             </div>
-        </section>
-
+        </div>
 
     </div>
