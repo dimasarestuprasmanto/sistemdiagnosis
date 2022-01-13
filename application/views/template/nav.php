@@ -43,7 +43,11 @@
                                 <p class="mb-1 mt-3 font-weight-semibold"><?php echo $this->session->userdata('nama'); ?></p>
                                 <!--p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p-->
                             </div>
-                            <a class="dropdown-item" href="<?= ($this->session->userdata('level') === '2') ? base_url('user/profil') : base_url('admin/profil'); ?>"><i class=" dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i>Profil</a>
+                            <a class="dropdown-item" href="
+                                <?= ($this->session->userdata('level') === '2') ? base_url('user/profil') : base_url('admin/profil'); ?>">
+                                <i class=" dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i>
+                                Profil
+                            </a>
                             <a class="dropdown-item" href="<?php echo site_url('login/logout'); ?>"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Logout</a>
                         </div>
                     </li>
