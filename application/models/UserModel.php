@@ -10,23 +10,6 @@ class UserModel extends CI_Model
         return $result;
     }
 
-    function setId()
-    {
-        $this->db->select_max('id_user');
-        $query  = $this->db->get('user');
-        $row = $query->row_array();
-        if (isset($row)) {
-            $kode = $row['id_user'];
-            $urutan = (int) substr($kode, 1, 2);
-            $urutan++;
-            $huruf = "G";
-            $result = $huruf . sprintf("%02s", $urutan);
-            return $result;
-        } else {
-            $result = 'G01';
-            return $result;
-        }
-    }
 
     function getAll()
     {
@@ -44,5 +27,30 @@ class UserModel extends CI_Model
     {
         $query = $this->db->query("SELECT COUNT(*) as count_user FROM user WHERE level='2'");
         return $query->row_array();
+    }
+
+    function getProfil($username)
+    {
+        $query = $this->db->query("SELECT * FROM user where username = '$username'");
+        return $query->row_array();
+    }
+
+    function savePw()
+    {
+        $pass = md5($this->input->post('new_password'));
+        $data = array (
+                'password' => $pass
+                );
+
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->update('user', $data);
+    }
+
+    function checkPw()
+    {
+        $old = md5($this->input->post('old_password'));    
+        $this->db->where('password',$old);
+        $query = $this->db->get('user');
+        return $query->result();;
     }
 }

@@ -46,7 +46,13 @@
                            <span class="menu-title">Info Penyakit</span>
                        </a>
                    </li>
-
+                   
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?= base_url('user/profil')?>">
+                           <i class="menu-icon mdi mdi-settings"></i>
+                           <span class="menu-title">Akun saya</span>
+                       </a>
+                   </li>
                    <li class="nav-item" style="position: absolute;bottom:0;transform: translateY(-50%);">
                        <a class="nav-link" href="<?php echo site_url('login/logout'); ?>">
                            <i class="menu-icon mdi mdi-power"></i>

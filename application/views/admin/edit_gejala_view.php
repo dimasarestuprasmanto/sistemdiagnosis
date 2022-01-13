@@ -3,7 +3,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Tambah Gejala Tanaman Bawang Merah</h4>
+                    <h4 class="card-title">Edit Gejala Tanaman Bawang Merah</h4>
                     <form class="forms-sample" action="" method="POST">
                         <input type="text" class="form-control" name="id" value="<?= $data['id']; ?>" hidden>
                         <div class="form-group">

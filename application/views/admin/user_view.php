@@ -35,10 +35,10 @@
                     </div>
                     <?php }?>
 
-                    <a href="user/tambah_user" type="button" class="btn btn-primary btn-icon-text">
+                    <!--a href="user/tambah_user" type="button" class="btn btn-primary btn-icon-text">
                         <i class="ti-plus btn-icon-prepend"></i>
                         Tambah Data
-                    </a>
+                    </a-->
 
                     <div class="table-responsive pt-3">
                         <table class="table table-hover table-striped" id="tableuser">
@@ -59,9 +59,9 @@
                                     <th class="col-2">
                                         Tgl Daftar
                                     </th>
-                                    <th class="col-1">
+                                    <!--th class="col-1">
                                         Action
-                                    </th>
+                                    </th-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,7 +82,7 @@
                                     <td>
                                         <?= $rows->tanggal_registrasi?>
                                     </td>
-                                    <td>
+                                    <!--td>
                                         <a href="user/edit/" class="btn-sm btn-inverse-info btn-icon">
                                             <i class="mdi mdi-lead-pencil"></i>
                                         </a>
@@ -90,7 +90,7 @@
                                         <a href="user/hapus/" class="btn-sm btn-inverse-danger btn-icon" onclick="return confirm('Apakah anda yakin ingin menghapus');">
                                             <i class="mdi mdi-delete"></i>
                                         </a>
-                                    </td>
+                                    </td-->
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>

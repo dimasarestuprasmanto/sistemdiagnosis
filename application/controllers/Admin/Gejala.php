@@ -85,6 +85,7 @@ class Gejala extends CI_Controller
             }     
         }
     }
+    
     public function hapus($id)
     {
         $result = $this->GejalaModel->deleteById($id);

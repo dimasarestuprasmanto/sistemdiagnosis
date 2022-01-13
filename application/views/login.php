@@ -28,6 +28,17 @@
                             <?php } else{  ?>
                                 <h6 class="fw-light"><b>Silahkan Login</b></h6>
                             <?php }?>
+
+                            <?php if($this->session->flashdata('resetpw')){  ?>
+                            <div class="alert alert-info">
+                                <i class="mdi mdi-information-outline"></i>
+                                <strong>
+                                    <?php echo $this->session->flashdata('resetpw');
+                                        unset($_SESSION['resetpw']);
+                                    ?>
+                                </strong>
+                            </div>
+                            <?php }?>
  
                             <form class="pt-3" action="<?php echo site_url('login/auth'); ?>" method="POST">
                                 <div class="form-group">

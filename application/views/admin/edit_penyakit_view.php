@@ -3,7 +3,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Tambah Penyakit Tanaman Bawang Merah</h4>
+                    <h4 class="card-title">Edit Penyakit Tanaman Bawang Merah</h4>
                     <?php echo form_open_multipart(''); ?>
                     <input type="text" class="form-control" name="id" value="<?= $data['id']; ?>" hidden>
                     <div class="form-group">

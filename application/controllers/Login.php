@@ -33,12 +33,14 @@ class Login extends CI_Controller
         $validate = $this->UserModel->validate($username,$password);
         if($validate->num_rows() > 0){
             $data  = $validate->row_array();
+            $id_user  = $data['id_user'];
             $nama  = $data['nama'];
             $username = $data['username'];
             $level = $data['level'];
             $sesdata = array(
+                'id_user'  => $id_user,
                 'nama'  => $nama,
-                'username'     => $username,
+                'username'  => $username,
                 'level'     => $level,
                 'logged_in' => TRUE
             );
