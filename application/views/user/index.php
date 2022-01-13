@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                     <h4 class="card-title">Diagnosis Penyakit</h4>
                                     <div class="media">
-                                        <i class="mdi mdi-shield-search icon-md text-info d-flex align-self-center me-3"></i>
+                                        <i class="mdi mdi-shield-search icon-lg text-info d-flex align-self-center me-3"></i>
                                         <div class="media-body">
                                         <p class="card-text">Halaman ini berfungsi untuk mendiagnosa penyakit yang ada pada tanaman bawang merah</p>
                                         </div>
@@ -36,7 +36,7 @@
                                     <div class="card-body">
                                     <h4 class="card-title">Info Penyakit</h4>
                                     <div class="media">
-                                        <i class="mdi mdi-information icon-md text-info d-flex align-self-end me-3"></i>
+                                        <i class="mdi mdi-information icon-lg text-info d-flex align-self-center me-3"></i>
                                         <div class="media-body">
                                         <p class="card-text">Halaman ini berfungsi untuk menampilkan informasi berupa penyakit yang terdapat pada tanaman bawah merah</p>
                                         </div>
