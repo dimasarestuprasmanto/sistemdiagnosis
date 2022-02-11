@@ -8,6 +8,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                         <div>
                             <div class="btn-wrapper">
+                                <a class="btn btn-primary text-white me-0" data-bs-toggle="modal" data-bs-target="#importModal"><i class="icon-file"></i>Import Data</a>
                                 <a href="penyakit/tambah_penyakit" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Tambah Penyakit</a>
                                 <a href="gejala/tambah_gejala" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Tambah Gejala</a>
                                 <a href="rule/tambah_rule" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Tambah Rule</a>
@@ -67,6 +68,34 @@
                 </div>
             </div>
         </div>
-
+        <!-- Modal -->
+        <div class="modal fade" id="importModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Import Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group col-lg-7">
+                    <label for="jumlah">Jumlah data yang akan di import</label>
+                    <input class="form-control" placeholder="0" type="number" name="jumlah" required>
+                </div>
+                <div class="form-group col-lg-9">
+                    <label for="fileExcel">Silahkan pilih file</label>
+                    <input class="form-control" type="file" name="fileExcel" required>
+                    <small class="text-muted" style="font-size: x-small;"><i>hanya support file dengan ekstensi .xlsx dan .csv</i></small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <!-- end modal-->
     </div>
     <!-- content-wrapper ends --
