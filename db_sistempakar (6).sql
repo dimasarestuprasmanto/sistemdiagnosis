@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 30, 2021 at 12:16 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: 127.0.0.1:3308
+-- Generation Time: Feb 11, 2022 at 08:06 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_sistempakar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_uji`
+--
+
+CREATE TABLE `data_uji` (
+  `id` int(11) NOT NULL,
+  `problems_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_uji_detail`
+--
+
+CREATE TABLE `data_uji_detail` (
+  `id` int(11) NOT NULL,
+  `gejala_id` int(11) NOT NULL,
+  `data_uji_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -180,6 +203,21 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`, `alamat`
 --
 
 --
+-- Indexes for table `data_uji`
+--
+ALTER TABLE `data_uji`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `problems_id` (`problems_id`);
+
+--
+-- Indexes for table `data_uji_detail`
+--
+ALTER TABLE `data_uji_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `gejala_id` (`gejala_id`),
+  ADD KEY `data_uji_id` (`data_uji_id`);
+
+--
 -- Indexes for table `gejala`
 --
 ALTER TABLE `gejala`
@@ -210,6 +248,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `data_uji`
+--
+ALTER TABLE `data_uji`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `data_uji_detail`
+--
+ALTER TABLE `data_uji_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `gejala`
 --
 ALTER TABLE `gejala`
@@ -236,6 +286,19 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `data_uji`
+--
+ALTER TABLE `data_uji`
+  ADD CONSTRAINT `data_uji_ibfk_1` FOREIGN KEY (`problems_id`) REFERENCES `problems` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `data_uji_detail`
+--
+ALTER TABLE `data_uji_detail`
+  ADD CONSTRAINT `data_uji_detail_ibfk_1` FOREIGN KEY (`data_uji_id`) REFERENCES `data_uji` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `data_uji_detail_ibfk_2` FOREIGN KEY (`gejala_id`) REFERENCES `gejala` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rules`
