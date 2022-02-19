@@ -4,7 +4,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Import Data Uji</h4>
+                    <h4 class="card-title">Import Data Training</h4>
 
                     <?php if($this->session->flashdata('success')){ ?>
                     <div class="alert alert-success">
@@ -17,7 +17,7 @@
                     </div>
                     <?php }?>
 
-                    <form action="<?=base_url('/admin/importuji/excel')?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?=base_url('/admin/importtraining/excel')?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group col-lg-7">
                             <label for="jumlah">Jumlah data yang akan di import</label>
                             <input class="form-control" placeholder="0" type="number" name="jumlah" required>

@@ -90,6 +90,12 @@
                            <span class="menu-title">Data Uji</span>
                        </a>
                    </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?= base_url('admin/importtraining') ?>">
+                           <i class="menu-icon mdi mdi-file"></i>
+                           <span class="menu-title">Data Training</span>
+                       </a>
+                   </li>
                <?php endif; ?>
                <li class="nav-item" style="position: absolute;bottom:0;transform: translateY(-50%);">
                    <a class="nav-link" href="<?php echo site_url('login/logout'); ?>">

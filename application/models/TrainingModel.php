@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
  
-class UjiModel extends CI_Model {
+class TrainingModel extends CI_Model {
     private $_batchImport;
  
     public function setBatchImport($batchImport) {

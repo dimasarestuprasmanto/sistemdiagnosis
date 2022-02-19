@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-class ImportUji extends CI_Controller
+class ImportTraining extends CI_Controller
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class ImportUji extends CI_Controller
             $url = base_url();
             redirect($url);
         }
-        $this->load->model('UjiModel');
+        $this->load->model('TrainingModel');
 
     }
 
@@ -22,7 +22,7 @@ class ImportUji extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/nav');
         $this->load->view('template/sidebar');
-        $this->load->view('admin/import_uji_view');
+        $this->load->view('admin/import_training_view');
         $this->load->view('template/footer');
     }
 
@@ -80,8 +80,8 @@ class ImportUji extends CI_Controller
                         $fetchData[] = array('first_name' => $firstName, 'last_name' => $lastName, 'email' => $email, 'dob' => $dob, 'contact_no' => $contactNo);
                     }   
                     $data['dataInfo'] = $fetchData;
-                    $this->UjiModel->setBatchImport($fetchData);
-                    $this->UjiModel->importData();
+                    $this->TrainingModel->setBatchImport($fetchData);
+                    $this->TrainingModel->importData();
                 } else {
                     echo "Please import correct file, did not match excel sheet column";
                 }
@@ -89,7 +89,7 @@ class ImportUji extends CI_Controller
                 $this->load->view('template/header');
                 $this->load->view('template/nav');
                 $this->load->view('template/sidebar');
-                $this->load->view('admin/import_uji_view');
+                $this->load->view('admin/import_training_view');
                 $this->load->view('template/footer');            
             }              
         
