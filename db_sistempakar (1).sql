@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Feb 11, 2022 at 08:06 PM
+-- Host: 127.0.0.1
+-- Generation Time: Feb 19, 2022 at 11:44 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data_uji` (
   `id` int(11) NOT NULL,
-  `problems_id` int(11) NOT NULL
+  `problems_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `data_uji`
+--
+
+INSERT INTO `data_uji` (`id`, `problems_id`) VALUES
+(1, 1),
+(2, 1),
+(4, 6),
+(5, 8),
+(6, 8),
+(3, 11);
 
 -- --------------------------------------------------------
 
@@ -40,9 +52,33 @@ CREATE TABLE `data_uji` (
 
 CREATE TABLE `data_uji_detail` (
   `id` int(11) NOT NULL,
-  `gejala_id` int(11) NOT NULL,
+  `code_gejala` varchar(25) NOT NULL,
   `data_uji_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `data_uji_detail`
+--
+
+INSERT INTO `data_uji_detail` (`id`, `code_gejala`, `data_uji_id`) VALUES
+(1, 'G01', 1),
+(2, 'G02', 1),
+(3, 'G03', 1),
+(4, 'G01', 2),
+(5, 'G02', 2),
+(6, 'G04', 2),
+(7, 'G02', 3),
+(8, 'G22', 3),
+(9, 'G12', 4),
+(10, 'G13', 4),
+(11, 'G24', 4),
+(12, 'G16', 5),
+(13, 'G17', 5),
+(14, 'G11', 6),
+(15, 'G12', 6),
+(16, 'G17', 6),
+(17, 'G18', 6),
+(18, 'G19', 6);
 
 -- --------------------------------------------------------
 
@@ -214,7 +250,6 @@ ALTER TABLE `data_uji`
 --
 ALTER TABLE `data_uji_detail`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `gejala_id` (`gejala_id`),
   ADD KEY `data_uji_id` (`data_uji_id`);
 
 --
@@ -251,13 +286,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `data_uji`
 --
 ALTER TABLE `data_uji`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `data_uji_detail`
 --
 ALTER TABLE `data_uji_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `gejala`
@@ -297,8 +332,7 @@ ALTER TABLE `data_uji`
 -- Constraints for table `data_uji_detail`
 --
 ALTER TABLE `data_uji_detail`
-  ADD CONSTRAINT `data_uji_detail_ibfk_1` FOREIGN KEY (`data_uji_id`) REFERENCES `data_uji` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `data_uji_detail_ibfk_2` FOREIGN KEY (`gejala_id`) REFERENCES `gejala` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `data_uji_detail_ibfk_1` FOREIGN KEY (`data_uji_id`) REFERENCES `data_uji` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rules`
