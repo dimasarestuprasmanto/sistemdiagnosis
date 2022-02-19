@@ -85,9 +85,9 @@
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="<?= base_url('admin/import') ?>">
+                       <a class="nav-link" href="<?= base_url('admin/importuji') ?>">
                            <i class="menu-icon mdi mdi-file"></i>
-                           <span class="menu-title">Import Data</span>
+                           <span class="menu-title">Data Uji</span>
                        </a>
                    </li>
                <?php endif; ?>
