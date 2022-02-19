@@ -4,17 +4,17 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
  
 class UjiModel extends CI_Model {
-
-	public function insert($data){
-		$insert = $this->db->insert_batch('import', $data);
-		if($insert){
-			return true;
-		}
-	}
-	public function getData(){
-		$this->db->select('*');
-		return $this->db->get('import')->result_array();
-	}
+    private $_batchImport;
+ 
+    public function setBatchImport($batchImport) {
+        $this->_batchImport = $batchImport;
+    }
+ 
+    // save data
+    public function importData() {
+        $data = $this->_batchImport;
+        $this->db->insert_batch('import', $data);
+    }
 
 }
  

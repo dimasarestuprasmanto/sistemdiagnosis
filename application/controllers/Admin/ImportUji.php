@@ -80,12 +80,16 @@ class ImportUji extends CI_Controller
                         $fetchData[] = array('first_name' => $firstName, 'last_name' => $lastName, 'email' => $email, 'dob' => $dob, 'contact_no' => $contactNo);
                     }   
                     $data['dataInfo'] = $fetchData;
-                    $this->site->setBatchImport($fetchData);
-                    $this->site->importData();
+                    $this->UjiModel->setBatchImport($fetchData);
+                    $this->UjiModel->importData();
                 } else {
                     echo "Please import correct file, did not match excel sheet column";
                 }
-                $this->load->view('admin/import_uji_view', $data);
+                $this->load->view('template/header');
+                $this->load->view('template/nav');
+                $this->load->view('template/sidebar');
+                $this->load->view('admin/import_uji_view');
+                $this->load->view('template/footer');            
             }              
         
     }
