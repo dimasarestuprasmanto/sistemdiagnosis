@@ -47,8 +47,13 @@ class ImportUji extends CI_Controller
                 // array Count
                 $arrayCount = count($allDataInSheet);
                 $flag = 0;
-                $createArray = array('First_Name', 'Last_Name', 'Email', 'DOB', 'Contact_No');
-                $makeArray = array('First_Name' => 'First_Name', 'Last_Name' => 'Last_Name', 'Email' => 'Email', 'DOB' => 'DOB', 'Contact_No' => 'Contact_No');
+                $createArray = array('Nama_Bawang', 'Gejala', 'Jenis', 'Penyebab');
+                $makeArray = array(
+                                'Nama_Bawang' => 'Nama_Bawang', 
+                                'Gejala' => 'Gejala', 
+                                'Jenis' => 'Jenis', 
+                                'Penyebab' => 'Penyebab', 
+                            );
                 $SheetDataKey = array();
                 foreach ($allDataInSheet as $dataInSheet) {
                     foreach ($dataInSheet as $key => $value) {
@@ -66,18 +71,16 @@ class ImportUji extends CI_Controller
                 if ($flag == 1) {
                     for ($i = 2; $i <= $arrayCount; $i++) {
                         $addresses = array();
-                        $firstName = $SheetDataKey['First_Name'];
-                        $lastName = $SheetDataKey['Last_Name'];
-                        $email = $SheetDataKey['Email'];
-                        $dob = $SheetDataKey['DOB'];
-                        $contactNo = $SheetDataKey['Contact_No'];
+                        $namaBawang = $SheetDataKey['Nama_Bawang'];
+                        $Gejala = $SheetDataKey['Gejala'];
+                        $Jenis = $SheetDataKey['Jenis'];
+                        $Penyebab = $SheetDataKey['Penyebab'];
  
-                        $firstName = filter_var(trim($allDataInSheet[$i][$firstName]), FILTER_SANITIZE_STRING);
-                        $lastName = filter_var(trim($allDataInSheet[$i][$lastName]), FILTER_SANITIZE_STRING);
-                        $email = filter_var(trim($allDataInSheet[$i][$email]), FILTER_SANITIZE_EMAIL);
-                        $dob = filter_var(trim($allDataInSheet[$i][$dob]), FILTER_SANITIZE_STRING);
-                        $contactNo = filter_var(trim($allDataInSheet[$i][$contactNo]), FILTER_SANITIZE_STRING);
-                        $fetchData[] = array('first_name' => $firstName, 'last_name' => $lastName, 'email' => $email, 'dob' => $dob, 'contact_no' => $contactNo);
+                        $namaBawang = filter_var(trim($allDataInSheet[$i][$namaBawang]), FILTER_SANITIZE_STRING);
+                        $Gejala = filter_var(trim($allDataInSheet[$i][$Gejala]), FILTER_SANITIZE_STRING);
+                        $Jenis = filter_var(trim($allDataInSheet[$i][$Jenis]), FILTER_SANITIZE_EMAIL);
+                        $Penyebab = $this->UjiModel->_mappingProblems[filter_var(trim($allDataInSheet[$i][$Penyebab]), FILTER_SANITIZE_STRING)];
+                        $fetchData[] = array('problems_id' => $Penyebab);
                     }   
                     $data['dataInfo'] = $fetchData;
                     $this->UjiModel->setBatchImport($fetchData);
@@ -86,11 +89,7 @@ class ImportUji extends CI_Controller
                     echo "Please import correct file, did not match excel sheet column";
                 }
                 $this->session->set_flashdata('success', 'Data berhasil diimport');
-                $this->load->view('template/header');
-                $this->load->view('template/nav');
-                $this->load->view('template/sidebar');
-                $this->load->view('admin/import_uji_view');
-                $this->load->view('template/footer');            
+                redirect(base_url('admin/importuji'),'refresh');          
             }              
         
     }
