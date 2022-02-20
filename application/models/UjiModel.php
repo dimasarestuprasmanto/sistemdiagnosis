@@ -5,6 +5,7 @@ if (!defined('BASEPATH'))
  
 class UjiModel extends CI_Model {
     private $_batchImport;
+    private $_newImport;
  
     public $_mappingProblems = array(
         'Lalat Penggorok Daun' => '1',
@@ -25,13 +26,22 @@ class UjiModel extends CI_Model {
     public function setBatchImport($batchImport) {
         $this->_batchImport = $batchImport;
     }
+
+    public function setNewImport($newImport) {
+        $this->_newImport = $newImport;
+    }
  
     // save data
     public function importData() {
         $data = $this->_batchImport;
         $this->db->insert_batch('data_uji', $data);
-    }
+    } 
 
+    // save data
+    public function importDataDetail() {
+        $data = $this->_newImport;
+        $this->db->insert_batch('data_uji_detail', $data);
+    }
 
     
 
