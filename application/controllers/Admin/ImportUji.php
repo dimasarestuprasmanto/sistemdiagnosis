@@ -80,30 +80,11 @@ class ImportUji extends CI_Controller
                         $Gejala = filter_var(trim($allDataInSheet[$i][$Gejala]), FILTER_SANITIZE_STRING);
                         $Jenis = filter_var(trim($allDataInSheet[$i][$Jenis]), FILTER_SANITIZE_EMAIL);
                         $Penyebab = $this->UjiModel->_mappingProblems[filter_var(trim($allDataInSheet[$i][$Penyebab]), FILTER_SANITIZE_STRING)];
-                        $fetchData[] = array('problems_id' => $Penyebab);
+                        $fetchData[] = array('problems_id' => $Penyebab, 'gejala_id' => $Gejala);
                     }   
                     $data['dataInfo'] = $fetchData;
                     $this->UjiModel->setBatchImport($fetchData);
                     $this->UjiModel->importData();
-                    $id_uji = $this->db->insert_id();
-
-                    for ($i = 2; $i <= $arrayCount; $i++) {
-                        $addresses = array();
-                        $namaBawang = $SheetDataKey['Nama_Bawang'];
-                        $Gejala = $SheetDataKey['Gejala'];
-                        $Jenis = $SheetDataKey['Jenis'];
-                        $Penyebab = $SheetDataKey['Penyebab'];
- 
-                        $namaBawang = filter_var(trim($allDataInSheet[$i][$namaBawang]), FILTER_SANITIZE_STRING);
-                        $Gejala = filter_var(trim($allDataInSheet[$i][$Gejala]), FILTER_SANITIZE_STRING);
-                        $Jenis = filter_var(trim($allDataInSheet[$i][$Jenis]), FILTER_SANITIZE_EMAIL);
-                        $Penyebab = $this->UjiModel->_mappingProblems[filter_var(trim($allDataInSheet[$i][$Penyebab]), FILTER_SANITIZE_STRING)];
-                        
-                        $fetchDataDetail[] = array('id_uji' => $id_uji, 'code_gejala' => $Gejala);
-                        
-                    }   
-                    $this->UjiModel->setNewImport($fetchDataDetail);
-                    $this->UjiModel->importDataDetail();
 
                 } else {
                     echo "Please import correct file, did not match excel sheet column";
