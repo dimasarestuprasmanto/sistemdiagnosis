@@ -29,8 +29,34 @@
                         </div>
                         <div class="form-group col-lg-9">
                             <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <a class="btn btn-primary text-white me-0" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</a>
                         </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="importModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Import Data Uji</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group col-lg-12">
+                                    <div class="alert alert-warning">
+                                        Mengimpor data akan menghapus semua DATA UJI yang ada saat ini. 
+                                        Klik tombol Submit jika ingin melanjutkan.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- end modal-->
+
                     </form>
                 </div>
             </div>

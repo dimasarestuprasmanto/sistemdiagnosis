@@ -83,6 +83,7 @@ class ImportUji extends CI_Controller
                         $fetchData[] = array('problems_id' => $Penyebab, 'gejala_id' => $Gejala);
                     }   
                     $data['dataInfo'] = $fetchData;
+                    $this->db->truncate('data_uji');
                     $this->UjiModel->setBatchImport($fetchData);
                     $this->UjiModel->importData();
 

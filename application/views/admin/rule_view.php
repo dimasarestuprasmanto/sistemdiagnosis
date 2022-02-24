@@ -35,9 +35,15 @@
                     <?php }?>
                     
                     <a href="rule/tambah_rule" type="button" class="btn btn-primary btn-icon-text">
-                          <i class="ti-plus btn-icon-prepend"></i>
+                        <i class="ti-plus btn-icon-prepend"></i>
                           Tambah Data
                     </a>
+
+                    <a class="btn btn-primary text-white me-0" data-bs-toggle="modal" data-bs-target="#importModal">
+                        <i class="icon-file"></i>
+                        Import Data
+                    </a>
+
 
                     <div class="table-responsive pt-3">
                         <table class="table table-hover table-bordered" id="tabelrule">
@@ -102,5 +108,32 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="importModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="<?=base_url('/admin/rule/excel')?>" method="POST" enctype="multipart/form-data">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Import Data Pakar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger">
+                    Mengimpor data akan menghapus DATA RULE yang ada sebelumnya. 
+                    Import data ini akan otomatis menggunakan data dari pakar. 
+                    Klik Submit untuk melanjutkan.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+            </div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <!-- end modal-->
+
     </div>
     <!-- content-wrapper ends -->

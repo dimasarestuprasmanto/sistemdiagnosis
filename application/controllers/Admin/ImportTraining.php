@@ -83,6 +83,8 @@ class ImportTraining extends CI_Controller
                         $fetchData[] = array('problems_id' => $Penyebab, 'gejala_id' => $Gejala);
                     }   
                     $data['dataInfo'] = $fetchData;
+                    $this->db->truncate('rules');
+                    $this->db->truncate('data_training');
                     $this->TrainingModel->setBatchImport($fetchData);
                     $this->TrainingModel->importData();
 

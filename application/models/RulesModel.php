@@ -2,6 +2,8 @@
 
 class RulesModel extends CI_Model
 {
+    private $_batchImport;
+
     function setId()
     {
         $this->db->select_max('code');
@@ -37,4 +39,16 @@ class RulesModel extends CI_Model
 
         return $query->row_array();
     }
+
+    public function setBatchImport($batchImport) {
+        $this->_batchImport = $batchImport;
+    }
+ 
+    // save data
+    public function importData() {
+        $data = $this->_batchImport;
+        $this->db->insert_batch('rules', $data);
+
+        return $this->db->insert_id();
+    } 
 }

@@ -106,4 +106,67 @@ class Rule extends CI_Controller
             redirect(base_url('/admin/rule'));
         }   
     }
+
+    public function excel() {
+        $data = array();
+            // If file uploaded
+            if(!empty($_POST['submit'])) { 
+
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+                // file path
+                $inputFileName = './assets/file/data_rule.xlsx';
+                $spreadsheet = $reader->load($inputFileName);
+                $allDataInSheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+            
+                // array Count
+                $arrayCount = count($allDataInSheet);
+                $flag = 0;
+                $createArray = array('Code', 'Belief', 'Problems_id', 'Gejala_id');
+                $makeArray = array(
+                                'Code' => 'Code', 
+                                'Belief' => 'Belief', 
+                                'Problems_id' => 'Problems_id', 
+                                'Gejala_id' => 'Gejala_id', 
+                            );
+                $SheetDataKey = array();
+                foreach ($allDataInSheet as $dataInSheet) {
+                    foreach ($dataInSheet as $key => $value) {
+                        if (in_array(trim($value), $createArray)) {
+                            $value = preg_replace('/\s+/', '', $value);
+                            $SheetDataKey[trim($value)] = $key;
+                        } 
+                    }
+                }
+                $dataDiff = array_diff_key($makeArray, $SheetDataKey);
+                if (empty($dataDiff)) {
+                    $flag = 1;
+                }
+                // match excel sheet column
+                if ($flag == 1) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
+                        $addresses = array();
+                        $code = $SheetDataKey['Code'];
+                        $belief = $SheetDataKey['Belief'];
+                        $problemsId = $SheetDataKey['Problems_id'];
+                        $gejalaId = $SheetDataKey['Gejala_id'];
+ 
+                        $code = filter_var(trim($allDataInSheet[$i][$code]), FILTER_SANITIZE_STRING);
+                        $belief = filter_var(trim($allDataInSheet[$i][$belief]), FILTER_SANITIZE_STRING);
+                        $problemsId = filter_var(trim($allDataInSheet[$i][$problemsId]), FILTER_SANITIZE_EMAIL);
+                        $gejalaId = filter_var(trim($allDataInSheet[$i][$gejalaId]), FILTER_SANITIZE_STRING);
+                        $fetchData[] = array('code' => $code, 'belief' => $belief, 'problems_id' => $problemsId, 'gejala_id' => $gejalaId);
+                    }   
+                    $data['dataInfo'] = $fetchData;
+                    $this->db->truncate('rules');
+                    $this->RulesModel->setBatchImport($fetchData);
+                    $this->RulesModel->importData();
+
+                } else {
+                    echo "Please import correct file, did not match excel sheet column";
+                }
+                $this->session->set_flashdata('success', 'Data berhasil diimport');
+                redirect(base_url('/admin/rule'));
+            }              
+        
+    }
 }
