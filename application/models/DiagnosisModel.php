@@ -24,4 +24,11 @@ class DiagnosisModel extends CI_Model
 
         return $query->row_array();
     }
+
+    function getGejalaNoArray($id)
+    {
+        $query = $this->db->query("SELECT GROUP_CONCAT(b.code) as '0', a.belief as '1' FROM rules a JOIN problems b ON a.problems_id=b.id WHERE a.gejala_id IN($id) GROUP BY a.gejala_id");
+
+        return $query->result_array();
+    }
 }

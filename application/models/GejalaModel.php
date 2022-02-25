@@ -53,4 +53,11 @@ class GejalaModel extends CI_Model
         $query = $this->db->query("SELECT COUNT(*) as count_gejala FROM gejala");
         return $query->row_array();
     }
+
+    function getByCode($id)
+    {
+        $query = $this->db->query("SELECT * FROM gejala where code = '$id'");
+
+        return $query->row_array();
+    }
 }

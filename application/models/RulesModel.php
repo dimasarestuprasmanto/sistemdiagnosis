@@ -40,15 +40,24 @@ class RulesModel extends CI_Model
         return $query->row_array();
     }
 
-    public function setBatchImport($batchImport) {
+    public function setBatchImport($batchImport)
+    {
         $this->_batchImport = $batchImport;
     }
- 
+
     // save data
-    public function importData() {
+    public function importData()
+    {
         $data = $this->_batchImport;
         $this->db->insert_batch('rules', $data);
 
         return $this->db->insert_id();
-    } 
+    }
+
+    function getCount()
+    {
+        $query = $this->db->query("SELECT COUNT(id) as total FROM rules");
+
+        return $query->row_array();
+    }
 }
