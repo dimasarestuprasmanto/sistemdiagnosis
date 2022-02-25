@@ -108,7 +108,8 @@ class ImportTraining extends CI_Controller
                     $data_test = [
                         'belief' => $belief,
                         'problems_id' => $id_problem,
-                        'gejala_id' => $code_id
+                        'gejala_id' => $code_id,
+                        'user_id' => $this->session->id_user
                     ];
                     $query = $this->db->insert('data_hasil_training', $data_test);
                 }
