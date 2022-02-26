@@ -17,7 +17,7 @@
                         <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <img class="card-img-top embed-responsive-item" src="<?= base_url('assets/images/penyakit/' . $p->image) ?>" />
+                                <img class="card-img-top embed-responsive-item" src="<?=base_url('assets/images/penyakit/' . $p->image) ?>" alt="image"/>
                             </div>
                             <div class="card-block mb-3 mt-3 text-center">
                                 <h5 class="mb-0 card-title"><?= $p->name ?></h5>

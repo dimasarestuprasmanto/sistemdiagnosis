@@ -82,7 +82,7 @@
                                             <?= $p->solution ?>
                                         </td>
                                         <td>
-                                            <center><img src=" <?= base_url('assets/images/penyakit/' . $p->image) ?>"></center>
+                                            <img src="<?=base_url('assets/images/penyakit/' . $p->image) ?>" alt="image">
                                         </td>
                                         <td>
                                             <a href="penyakit/edit/<?= encrypt_url($p->id) ?>" class="btn-sm btn-inverse-info btn-icon">

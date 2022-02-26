@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <h3 class="card-title">Nama Penyakit : <strong class="text-info"><?= $data['name']; ?></strong></h3>
 
-                    <img class="img-fluid" src="<?= base_url('assets/images/penyakit/' . $data['image']) ?>" style="width: max-content; align-items:center;" />
+                    <img class="img-fluid" src="<?= base_url('assets/images/penyakit/' . $data['image']) ?>" style="width: 320px; align-items:center;" alt="image"  />
 
                     <h3 class="card-title mb-3 mt-5">Deskripsi Penyakit</h3>
                     <blockquote class="blockquote blockquote-info">
