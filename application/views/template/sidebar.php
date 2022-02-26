@@ -86,13 +86,13 @@
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="<?= base_url('admin/importuji') ?>">
-                           <i class="menu-icon mdi mdi-file"></i>
+                           <i class="menu-icon mdi mdi-file-xml"></i>
                            <span class="menu-title">Data Uji</span>
                        </a>
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="<?= base_url('admin/importtraining') ?>">
-                           <i class="menu-icon mdi mdi-file"></i>
+                           <i class="menu-icon mdi mdi-file-chart"></i>
                            <span class="menu-title">Data Training</span>
                        </a>
                    </li>

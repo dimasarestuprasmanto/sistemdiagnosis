@@ -38,6 +38,9 @@ class ImportUji extends CI_Controller
             $data = array();
             // If file uploaded
             if (!empty($_FILES['fileURL']['name'])) {
+                //get limit rows
+                $limitRow = $this->input->post('totalRows');
+                $maxRowsImport = '0';
                 // get file extension
                 $extension = pathinfo($_FILES['fileURL']['name'], PATHINFO_EXTENSION);
 
@@ -45,15 +48,27 @@ class ImportUji extends CI_Controller
                     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
                 } elseif ($extension == 'xlsx') {
                     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-                } else {
+                } elseif ($extension == 'xls') {
                     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+                } else {
+                    $this->session->set_flashdata('error', 'Format file tidak didukung! Mohon upload file dengan format .xls,.xlsx atau .csv');
+                    redirect(base_url('/admin/importuji'));
                 }
                 // file path
                 $spreadsheet = $reader->load($_FILES['fileURL']['tmp_name']);
                 $allDataInSheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-
+                $arrayCount = '';
                 // array Count
-                $arrayCount = count($allDataInSheet);
+                if($limitRow == $maxRowsImport){
+                    $arrayCount = count($allDataInSheet);
+                }
+                elseif($limitRow > count($allDataInSheet)){
+                    $this->session->set_flashdata('error', 'Jumlah data yang diimport melebihi data yang ada di file excel!');
+                    redirect(base_url('/admin/importuji'));
+                }else{
+                    $arrayCount = $limitRow + 1;
+                }
+
                 $flag = 0;
                 $createArray = array('Nama_Bawang', 'Gejala', 'Jenis', 'Penyebab');
                 $makeArray = array(
@@ -95,9 +110,9 @@ class ImportUji extends CI_Controller
                     $this->UjiModel->setBatchImport($fetchData);
                     $this->UjiModel->importData();
                 } else {
-                    echo "Please import correct file, did not match excel sheet column";
+                    $this->session->set_flashdata('error', 'Format kolom dalam file Excel tidak sesuai. Mohon gunakan format yang ada!');
+                    redirect(base_url('/admin/importuji'));
                 }
-
                 //uji data
                 $data = $this->DataUjiModel->getAll();
 
@@ -181,13 +196,13 @@ class ImportUji extends CI_Controller
 
                 $count = count($data);
                 $true = round((float)$benar / count($data) * 100) . '%';
-                $this->session->set_flashdata('success', 'Data berhasil diimport');
+                $this->session->set_flashdata('success', 'Data berhasil diimport, dengan hasil sebagai berikut :');
                 $this->session->set_flashdata('true', $true);
                 $this->session->set_flashdata('count', $count);
                 redirect(base_url('admin/importuji'), 'refresh');
             }
         } else {
-            $this->session->set_flashdata('success', 'Data Gagal Di import karena data rule kosong! Silahkan import data training di menu Data Training ATAU data pakar di menu Rule telebih dahulu');
+            $this->session->set_flashdata('warning', 'Data gagal diimport karena DATA RULE kosong! Silahkan import data training di menu <b>Data Training ATAU Data Pakar di menu Data Rule telebih dahulu!');
             redirect(base_url('admin/importuji'), 'refresh');
         }
     }

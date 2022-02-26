@@ -15,21 +15,31 @@
                                 ?>
                             </strong>
                         </div>
+                    <?php } elseif ($this->session->flashdata('error')) { ?>
+                        <div class="alert alert-danger">
+                            <i class="mdi mdi-close-octagon-outline"></i>
+                            <strong>
+                                <?php echo $this->session->flashdata('error');
+                                unset($_SESSION['error']);
+                                ?>
+                            </strong>
+                        </div>
                     <?php } ?>
 
                     <form action="<?= base_url('/admin/importtraining/excel') ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group col-lg-7">
                             <label for="jumlah">Jumlah data yang akan di import</label>
-                            <input class="form-control" placeholder="0" type="number" name="jumlah" required>
+                            <input class="form-control" value="0" type="number" name="totalRows" required>
+                            <span><small class="text-muted" style="font-size: x-small;"><i>*biarkan isian tetap <B>0</B> jika ingin mengimmpor semua baris data dari excel</i></small></span>
                         </div>
                         <div class="form-group col-lg-9">
                             <label for="fileExcel">Silahkan pilih file</label>
                             <input class="form-control" type="file" name="fileURL" required>
-                            <small class="text-muted" style="font-size: x-small;"><i>hanya support file dengan ekstensi .xlsx dan .csv</i></small>
+                            <span><small class="text-muted" style="font-size: x-small;"><i>*hanya support file dengan ekstensi .xls, .xlsx dan .csv</i></small></span>
                         </div>
                         <div class="form-group col-lg-9">
                             <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
-                            <a class="btn btn-primary text-white me-0" data-bs-toggle="modal" data-bs-target="#importModal">Submit Data Training</a>
+                            <a class="btn btn-primary text-white me-0" data-bs-toggle="modal" data-bs-target="#importModal">Import Data Training</a>
                         </div>
 
                         <!-- Modal -->
@@ -42,9 +52,12 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group col-lg-12">
-                                            <div class="alert alert-warning">
+                                        <div class="alert alert-warning">
                                                 Mengimpor data akan menghapus semua DATA TRAINING dan DATA RULE yang ada saat ini.
                                                 Klik tombol Submit jika ingin melanjutkan.
+                                            </div>                                            
+                                            <div class="alert alert-warning">
+                                                Proses mengimpor data membutuhkan waktu sekitar 1-5 menit.
                                             </div>
                                         </div>
                                     </div>
