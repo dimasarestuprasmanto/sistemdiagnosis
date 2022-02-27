@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-class ImportTraining extends CI_Controller
+class Training extends CI_Controller
 {
     public function __construct()
     {
@@ -47,7 +47,7 @@ class ImportTraining extends CI_Controller
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
             } else{
                 $this->session->set_flashdata('error', 'Format file tidak didukung! Mohon upload file dengan format .xls,.xlsx atau .csv');
-                redirect(base_url('/admin/importtraining'));
+                redirect(base_url('/admin/training'));
             }
             // file path
             $spreadsheet = $reader->load($_FILES['fileURL']['tmp_name']);
@@ -59,7 +59,7 @@ class ImportTraining extends CI_Controller
             }
             elseif($limitRow > count($allDataInSheet)){
                 $this->session->set_flashdata('error', 'Jumlah data yang diimport melebihi data yang ada di file excel!');
-                redirect(base_url('/admin/importtraining'));
+                redirect(base_url('/admin/training'));
             }else{
                 $arrayCount = $limitRow + 1;
             }
@@ -108,7 +108,7 @@ class ImportTraining extends CI_Controller
                 $this->TrainingModel->importData();
             } else {
                 $this->session->set_flashdata('error', 'Format kolom dalam file Excel tidak sesuai. Mohon gunakan format yang ada!');
-                redirect(base_url('/admin/importtraining'));
+                redirect(base_url('/admin/training'));
             }
 
             $data = $this->TrainingModel->getAll();
@@ -148,7 +148,7 @@ class ImportTraining extends CI_Controller
             }
 
             $this->session->set_flashdata('success', 'Data berhasil diimport');
-            redirect(base_url('admin/importtraining'));
+            redirect(base_url('admin/training'));
         }
     }
 }

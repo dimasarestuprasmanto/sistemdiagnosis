@@ -79,7 +79,7 @@
                     <br>
                     <br>
                     <?php } ?>
-                    <form action="<?= base_url('/admin/importuji/excel') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('/admin/uji/excel') ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group col-lg-7">
                             <label for="jumlah">Jumlah data yang akan di import</label>
                             <input class="form-control" value="0" type="number" name="totalRows" required>
