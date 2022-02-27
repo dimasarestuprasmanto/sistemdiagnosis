@@ -17,6 +17,7 @@ class Uji extends CI_Controller
         $this->load->model('DiagnosisModel');
         $this->load->model('GejalaModel');
         $this->load->model('RulesModel');
+        $this->load->helper(array('url','download'));				
     }
 
     public function index()
@@ -205,5 +206,9 @@ class Uji extends CI_Controller
             $this->session->set_flashdata('warning', 'Data gagal diimport karena DATA RULE kosong! Silahkan import data training di menu <b>Data Training ATAU Data Pakar di menu Data Rule telebih dahulu!');
             redirect(base_url('admin/uji'), 'refresh');
         }
+    }
+
+    public function download(){
+        force_download('assets/file/data_uji.xlsx',NULL);
     }
 }

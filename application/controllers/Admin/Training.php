@@ -15,6 +15,7 @@ class Training extends CI_Controller
         $this->load->model('TrainingModel');
         $this->load->model('RulesModel');
         $this->load->model('GejalaModel');
+        $this->load->helper(array('url','download'));				
     }
 
     public function index()
@@ -150,5 +151,8 @@ class Training extends CI_Controller
             $this->session->set_flashdata('success', 'Data berhasil diimport');
             redirect(base_url('admin/training'));
         }
+    }
+    public function download(){
+        force_download('assets/file/data_training.xlsx',NULL);
     }
 }

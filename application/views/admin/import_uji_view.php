@@ -1,6 +1,16 @@
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+        <div>
+            <div class="btn-wrapper">
+                <a href="<?=base_url('admin/uji/download');?>" class="btn btn-primary btn-xs text-white">
+                Unduh Template Excel
+                </a>
+            </div>
+        </div>
+     </div>
+     <br>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
